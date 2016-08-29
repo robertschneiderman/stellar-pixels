@@ -4,48 +4,48 @@
    - AuthForm
 
   **GettingStartedContainer**
-   - Relevant Photos
-   - Select Option
-   - Confirmation View  
+    - Relevant Photos
+    - Select Option
+    - Confirmation View  
 
   **Home Page (Feed)**
-   - Photo Area
-     * Comment
-     * Add To Gallery
-     * Favorite
+    - Photo Area
+      * Comment
+      * Add To Gallery
+      * Favorite
 
-   - Sidebar
-     * Stats
-     * Advert
-     * Who To Follow          
+    - Sidebar
+      * Stats
+      * Advert
+      * Who To Follow          
 
   **Photo Expanded**
-   - Favorite
-   - Add to Gallery
-   - Author
-   - Buying Interface
-     + Details
-     + Price Options
-     + Licenses
-     + Comments   
+    - Favorite
+    - Add to Gallery
+    - Author
+    - Buying Interface
+      + Details
+      + Price Options
+      + Licenses
+      + Comments   
 
   **Uploading Photos**
-   - OnClick Option
-   - Drag & Drop Option
-   - Social Media Option
+    - OnClick Option
+    - Drag & Drop Option
+    - Social Media Option
 
   **Tagging Uploads**
-   - Discoverability
-   - Keywords
-   - Marketplace
-   - Categories
-   - Description
-   - License  
+    - Discoverability
+    - Keywords
+    - Marketplace
+    - Categories
+    - Description
+    - License  
 
   **Photo Search**
-   - Basic Search
-   - Advanced Options
-   - Photos View
+    - Basic Search
+    - Advanced Options
+    - Photos View
 
    **Profile**
     - Photos View
