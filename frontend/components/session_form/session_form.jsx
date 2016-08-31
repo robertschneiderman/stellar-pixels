@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { withRouter, Link, hashHistory } from 'react-router';
 
 class SessionForm extends React.Component {
 
@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate() {
@@ -20,7 +21,11 @@ class SessionForm extends React.Component {
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
-      hashHistory.push("/");
+    // console.log("here?");
+      debugger;
+      this.props.closeModal();
+      this.props.router.push("/search");
+      // this.props.router.refresh();
     }
   }
 
@@ -43,38 +48,60 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return(
-      <ul>
-        {this.props.errors.map( (error, i) => (
-          <li key={`error-${i}`}>{error}</li>
-        ))}
-      </ul>
-    );
+    if (this.props.errors) {
+      return(
+        <ul>
+          {this.props.errors.map( (error, i) => (
+            <li key={`error-${i}`}>{error}</li>
+          ))}
+        </ul>
+      )
+    }
   }
 
-  render() {
+  handleClick() {
+    // debugger;
+    const user = this.state;
+    this.props.formType === 'login' ? this.props.login({user}) : this.props.signup({user});
+  }
+
+  closeModal() {
+
+  }
+
+  render() { 
+    const formText = this.props.formType === 'signup' ? 'Sign Up' : 'Log In';
+
     return (
-      <div clasName="form-wrapper">
-        <h2>{this.props.formType}</h2>
-        <form className="form-login" onSubmit={this.handleSubmit}>
+      <div className="form-wrapper">
+        { this.renderErrors() }
 
+        <button onClick={this.props.closeModal} className="btn-modal-close">x</button>
+
+        <h2 className="react-modal-title">{formText} to Stellar Pixels</h2>
+
+        <label className="react-modal-label">
+          <span>Email:</span>
           <input 
-            type="text"/ 
-            placeholder="Email"
-            onChange={this.update("email"}
-            value={this.state.email}>
+            className="react-modal-input"
+            type="text"
+            onChange={this.update("email")}
+            value={this.state.email}/>
+        </label>
 
+        <label className="react-modal-label">
+          <span>Password:</span>
           <input
-            type="password"
-            placeholder="Password"
-            onChange={this.update("password")}
-            value={this.state.password}>
+          className="react-modal-input"
+          type="password"
+          onChange={this.update("password")}
+          value={this.state.password} />
+        </label>
 
-          <input type="submit" value="Login" />
-
-        </form>
+        <button onClick={this.handleClick.bind(this)} className="btn react-modal-btn">{formText}</button>
+      </div>
     )
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

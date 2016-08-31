@@ -1,10 +1,10 @@
 
-export const signup = user => ({
+export const requestSearchItems = user => ({
   type: "SIGNUP",
   user  
 });
 
-export const login = user => ({
+export const receiveSearchItems = user => ({
   type: "LOGIN",
   user
 });

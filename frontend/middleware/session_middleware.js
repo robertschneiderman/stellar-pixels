@@ -4,21 +4,25 @@ import * as ACTIONS from '../actions/session_actions';
 
 const SessionMiddleware = ({dispatch}) => next => action => {
 
-  const success = user => dispatch(ACTION.receiveCurrentUser);
+  const success = user => (
+    dispatch(ACTIONS.receiveCurrentUser(user))
+    // hashHistory
+  );
 
-  const error = errors => dispatch(ACTION.receiveErrors);
+  const error = xhr => dispatch(ACTIONS.receiveErrors(xhr.responseJSON));
 
   switch (action.type) {
-
-    case "SIGN_UP":
+    case "SIGNUP":
       API.signup(action.user, success, error);
-
-    case "LOG_IN":
+      return next(action);      
+      break;
+      
+    case "LOGIN":
       API.login(action.user, success, error);
       return next(action);
       break;
 
-    case "LOG_OUT":
+    case "LOGOUT":
       API.logout(() => next(action))
       break;
 

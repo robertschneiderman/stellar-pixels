@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'react-router';
+import { Link } from 'react-router';
 
-const personalGreeting = (currentUser, message) => (
+const personalGreeting = (currentUser, logout) => (
   <hgroup>
-    <h1>Hi, ${currentUser}</h1>
+    <h1>Hi, ${currentUser.username}</h1>
+    <button className="header-button" onClick={logout}>Log Out</button>
   </hgroup>
-  <button className="header-button" onClick={logout}>Log Out</button>  
 );
 
 const sessionLinks = () => (

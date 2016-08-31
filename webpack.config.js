@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/stellar-pixels.jsx",
+  entry: "./frontend/stellar_pixels.jsx",
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"

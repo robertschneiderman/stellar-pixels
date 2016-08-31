@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import GreetingContainer from './greeting_container';
+import Greeting from './greeting';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(GreetingContainer);
+)(Greeting);
