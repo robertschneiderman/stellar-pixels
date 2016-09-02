@@ -3,6 +3,7 @@
 @import url("helpers.css");
 @import url("spinner.css");
 @import url("justified_gallery");
+@import url("radio_buttons");
 
 .btn {
   color: #fff;
@@ -15,6 +16,13 @@
     color: #fff;
 */
 
+.btn-ar-container {
+
+}
+
+.btn-ar {
+
+}
 
 .btn-large {
   padding: 1.2rem 4rem;
@@ -169,9 +177,8 @@
 } 
 
 .searchbar-container {
-  margin-bottom: 3rem;
-  padding: 0 0 0 1rem;
   height: 4rem;
+  margin-bottom: 1rem;
 
 }
 
@@ -207,6 +214,14 @@
   
 }
 
+.search-filters-container {
+  margin-bottom: 1rem;
+}
+
+.search-filters {
+
+}
+
 .search-results {
   background-color: #f3f3f3;
   padding: 1rem;
@@ -218,5 +233,6 @@
 }
 
 .title-user {
-  
+  font-weight: 700;
+
 }

@@ -5,9 +5,12 @@ import { login, logout, signup } from '../../actions/session_actions';
 const mapStateToProps = state => {
   // console.log("state:", state);
   console.log("state:", state);
+
+  const email = state.session.currentUser.email ? state.session.currentUser.email : ''
+
   return {
     loggedIn: !!state.session.currentUser,
-    username: state.session.currentUser.email
+    email: email
   }
 };
 

@@ -38,5 +38,15 @@
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
     "webpack": "^1.13.2"
-  }
+  },
+  "engines": {
+    // Your versions of node and npm should go here
+    // Check this by running the `node -v` and `npm -v` commands in the root of your project
+    "node": "6.3.1",
+    "npm": "3.10.3"
+  }, 
+  
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  }   
 }

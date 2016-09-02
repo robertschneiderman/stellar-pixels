@@ -20,7 +20,7 @@ class Navbar extends React.Component {
         <ul className="navbar-nav fbc">
           <li className="ibm">
             <img className="img-avatar ibm" src="https://api.adorable.io/avatars/45/abott@adorable.io.png" />
-            <span className="title-user ibm">{this.props.username}</span>
+            <span className="title-user ibm">{this.props.email}</span>
           </li>
           <li className="ibm" onClick={this.props.logout}>Sign Out</li>
         </ul>

@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
+gem 'react-rails-img'
+
 
 
 group :development, :test do
@@ -24,3 +26,8 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'newrelic_rpm'  
+  gem 'rails_12factor' # error feedback
+end

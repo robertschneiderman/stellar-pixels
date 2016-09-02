@@ -1,0 +1,35 @@
+/*input[type=radio]{display:none;}*/
+
+/*input[type=checkbox]{display:none;}
+
+.rectangle{
+  display:inline-block;
+  cursor: pointer;
+  outline: 0; 
+  width: 128px;
+  height: 128px;
+  background-image: url("images/rectangle-ar.png");
+  background-size: 100px 82px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  text-indent: -99999px;
+  z-index:9999;
+}*/
+
+.input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+.selected {
+    background-color: #ccc;
+}
+
+#emotion label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#emotion label img {
+    padding: 3px;
+}
