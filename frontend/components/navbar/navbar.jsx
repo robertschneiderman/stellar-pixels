@@ -17,14 +17,18 @@ class Navbar extends React.Component {
   listItems() {
     if (this.props.loggedIn) {
       return (
-        <ul className="flex-between list-inline">
-          <li onClick={this.props.logout}>Sign Out</li>
+        <ul className="navbar-nav fbc">
+          <li className="ibm">
+            <img className="img-avatar ibm" src="https://api.adorable.io/avatars/45/abott@adorable.io.png" />
+            <span className="title-user ibm">{this.props.username}</span>
+          </li>
+          <li className="ibm" onClick={this.props.logout}>Sign Out</li>
         </ul>
       )
     } else {
         // debugger;
       return (  
-        <ul className="navbar-nav flex-between">
+        <ul className="navbar-nav">
           <li onClick={this.props.openModal.bind(this, 'signup')}>Sign Up</li>
           <li onClick={this.props.openModal.bind(this, 'login')}>Log In</li>
         </ul>
@@ -34,8 +38,8 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar flex-between">
-        <h1 className="logo">Stellar Pixels</h1>
+      <nav className="navbar fbc">
+        <h1 className="logo ibm">Stellar Pixels</h1>
         {this.listItems()}
       </nav>
     )

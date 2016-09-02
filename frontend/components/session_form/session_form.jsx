@@ -22,7 +22,6 @@ class SessionForm extends React.Component {
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
     // console.log("here?");
-      debugger;
       this.props.closeModal();
       this.props.router.push("/search");
       // this.props.router.refresh();
@@ -76,7 +75,7 @@ class SessionForm extends React.Component {
       <div className="form-wrapper">
         { this.renderErrors() }
 
-        <button onClick={this.props.closeModal} className="btn-modal-close">x</button>
+        <button onClick={this.props.closeModal} className="btn btn-modal-close">x</button>
 
         <h2 className="react-modal-title">{formText} to Stellar Pixels</h2>
 

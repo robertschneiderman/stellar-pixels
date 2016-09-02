@@ -49,6 +49,8 @@ class App extends React.Component {
       }
     }
 
+    console.log("this.store:", this.store);
+
     const active = this.state.modalIsOpen ? 'active' : '';
     return (
       <div>
@@ -59,6 +61,7 @@ class App extends React.Component {
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
+          enforceFocus={false}
           style={customStyles}
           className={active}
         >

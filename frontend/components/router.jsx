@@ -5,7 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Splash from './splash';
 import SessionFormContainer from './session_form/session_form_container';
-import SearchResults from './search/search-results';
+import SearchPageContainer from './search/search_page_container';
 
 
 class AppRouter extends React.Component {
@@ -21,7 +21,7 @@ class AppRouter extends React.Component {
     const currentState = this.props.store.getState();
     const currentUser = currentState.session.currentUser;
     if (!currentUser) {
-      replace('/login');
+      replace('/');
     }
   }
 
@@ -43,7 +43,7 @@ class AppRouter extends React.Component {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Splash} />
-          <Route path="/search" component={SearchResultsContainer} onEnter={this._ensureLoggedIn.bind(this)}>
+          <Route path="/search" component={SearchPageContainer} onEnter={this._ensureLoggedIn.bind(this)}>
           </Route>
           <Route path="/photos" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}>
           </Route>          

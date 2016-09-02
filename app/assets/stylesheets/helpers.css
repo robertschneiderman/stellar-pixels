@@ -1,3 +1,40 @@
+.clearfix {
+  overflow: auto;
+}
+
+.fb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fbc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.justify {
+    font-size: 0px;
+    text-align: justify;
+}
+
+.justify:after{
+  content: '';
+  display: inline-block;
+  font-size:0;
+  height: 0;      
+  line-height:0;
+  width: 100%;  
+}
+
+.vc {
+  align-items: center;
+}
+
+.ibm {
+  display: inline-block;
+  vertical-align: middle;
+}
 .mb1 {
   margin-bottom: 1rem;  
 }

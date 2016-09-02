@@ -3,6 +3,16 @@
   box-sizing: border-box;
 }
 
-button {
+button, input[type="submit"] {
+  background: none;
+  border: none;
   cursor: pointer;
+  transition: filter .3s, -webkit-filter .3s;
 }
+
+button:hover, input[type="submit"]:hover {
+  filter: brightness(85%);  
+  -webkit-filter: brightness(85%);  
+}
+
+^^Put this code in your defaults css file for a nice default hover effect on all your buttons. With this technique you don't need to find a darker shade of whatever color you choose to use on your button. The only drawback is that it won't work for IE11 and Opera Mini.

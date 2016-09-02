@@ -12,20 +12,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  # def search
-
-  #   tags: [
-  #     "snow",
-  #     "16:9"
-  #   ]
-
-  #   @photos = Photo.joins(:tags).where(tags.name in ["snow", "16:9"])
-
-  # render :index
-
-  # json.extract! photo, url, tag
-
-
   private
 
   def user_params

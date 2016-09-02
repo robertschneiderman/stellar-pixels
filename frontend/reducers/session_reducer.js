@@ -1,7 +1,7 @@
 // import * as API from '../util/session_api_util';
 // import * as ACTIONS from '../actions/session_actions';
 import merge from 'lodash/merge';
-import router from 'react-router';
+import {router, hashHistory} from 'react-router';
 
 const _nullUser = Object.freeze({
   currentUser: null,
@@ -17,8 +17,9 @@ const SessionReducer = (state = _nullUser, action) => {
       // router.push('/feed');
       return merge({}, _nullUser, {currentUser});
     case "LOGOUT":
+      console.log("here???");
+      hashHistory.push('/');
       return merge({}, _nullUser);
-
     case "RECEIVE_ERRORS":
       const errors = action.errors;    
       return merge({}, _nullUser, {errors});

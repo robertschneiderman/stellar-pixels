@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :photos
+
 
   def password= password
     self.password_digest = BCrypt::Password.create(password)

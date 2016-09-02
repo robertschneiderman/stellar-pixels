@@ -1,12 +1,12 @@
 import * as API from '../util/session_api_util';
 import * as ACTIONS from '../actions/session_actions';
+import {router, hashHistory} from 'react-router';
 
 
 const SessionMiddleware = ({dispatch}) => next => action => {
 
   const success = user => (
     dispatch(ACTIONS.receiveCurrentUser(user))
-    // hashHistory
   );
 
   const error = xhr => dispatch(ACTIONS.receiveErrors(xhr.responseJSON));
@@ -23,7 +23,8 @@ const SessionMiddleware = ({dispatch}) => next => action => {
       break;
 
     case "LOGOUT":
-      API.logout(() => next(action))
+      API.logout(() => next(action));
+      // hashHistory.push('/');
       break;
 
     default:
