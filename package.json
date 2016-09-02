@@ -7,9 +7,6 @@
     "doc": "docs",
     "test": "test"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robertschneiderman/stellar-pixels.git"
@@ -40,13 +37,10 @@
     "webpack": "^1.13.2"
   },
   "engines": {
-    // Your versions of node and npm should go here
-    // Check this by running the `node -v` and `npm -v` commands in the root of your project
     "node": "6.3.1",
     "npm": "3.10.3"
   }, 
-  
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack"
-  }   
+  }
 }
