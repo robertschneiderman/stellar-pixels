@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestSearchItems: items => dispatch(requestSearchItems(items)),
+    requestSearchItems: search => dispatch(requestSearchItems(search)),
   }
 };
 
