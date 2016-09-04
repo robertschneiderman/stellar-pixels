@@ -10,21 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901235646) do
+ActiveRecord::Schema.define(version: 20160904005251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "photos", force: :cascade do |t|
     t.string   "url",                    null: false
-    t.string   "title",                  null: false
+    t.string   "title"
     t.integer  "user_id",                null: false
     t.integer  "favorites",  default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "width",                  null: false
     t.integer  "height",                 null: false
+    t.integer  "api_id"
+    t.index ["api_id"], name: "index_photos_on_api_id", using: :btree
     t.index ["user_id"], name: "index_photos_on_user_id", using: :btree
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "photo_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_taggings_on_photo_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -54,6 +54,12 @@
   top: 0;
 }
 
+/*#Gallery > div:after {
+  content: "<div>Hello</div>";
+  position: absolute;
+  width: 100%;
+}*/
+
 .header-splash {
   text-align: center;
   animation: fadeInUp 1s ease 0s 1 normal forwards;
@@ -82,6 +88,26 @@
 .img-avatar {
   border-radius: 50%;
   margin-right: 0.5rem;
+}
+
+.img-container {
+  cursor: pointer;
+}
+
+.img-container:hover .img-footer {
+  opacity: 1;
+}
+
+.img-footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+  pointer-event: none; 
+  min-height: 50px;
+  background: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  transition: opacity 0.2s;  
 }
 
 .logo {
@@ -114,10 +140,13 @@
 }
 
 .navbar-nav > li {
-  color: #333;
   display: inline-block;
   cursor: pointer;
 }
+
+/*.navbar + .container-splash {
+  color:;
+}*/
 
 .ReactModal__Content {
   bottom: 0;

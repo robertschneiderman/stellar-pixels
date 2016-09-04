@@ -4,19 +4,18 @@ class Api::PhotosController < ApplicationController
 
     # @photos = Photo.where(title: params[:search])
     if params[:search]
-      # debugger
-      # @photos = Photo.where(title: 'red')
-      @photos = Photo.where("title LIKE ?", "%#{params[:search]}%")
+
+      @photos = []
+      Tag.where("name LIKE ?", "%#{params[:search]}%").to_a.each do |tag| 
+        @photos.concat(tag.photos)
+      end
+
+      @photos = @photos.uniq { |photo_ar| photo_ar.id }
+      # Photo.where("title LIKE ?", "%#{params[:search]}%")
     else
       @photos = Photo.all
     end
 
-    # tags: [
-    #   "snow",
-    #   "16:9"
-    # ]
-
-    # @photos = Photo.joins(:tags).where(tags.name in ["snow", "16:9"])
     render :index
 
   end

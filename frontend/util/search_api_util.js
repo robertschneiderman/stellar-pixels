@@ -4,13 +4,23 @@ var appendApiKeyHeader = function( xhr ) {
 
 export const fetchSearchItems = (query, success, error) => {
   const searchQuery = query ? `?search=${query}` : '';
+
   $.ajax({
     method: 'GET',
     url: `/api/photos/search/${searchQuery}`,
     success,
     error
   });
+
 };
+  // $.ajax({
+  //   method: 'GET',
+  //   url: `/api/photos/search/${searchQuery}`,
+  //   success,
+  //   error
+  // });
+
+
   // $.ajax({
   //   method: 'GET',
   //   url: `/api/photos/${searchQuery}`,

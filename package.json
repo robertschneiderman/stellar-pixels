@@ -26,6 +26,8 @@
     "image-layout": "^0.4.0",
     "justifiedgallery": "^1.0.10",
     "react": "^15.3.1",
+    "react-images": "^0.5.1",
+    "react-lazy-load": "^3.0.10",
     "react-masonry-component": "^4.2.1",
     "react-modal": "^1.4.0",
     "react-perfect-grid": "^1.0.11",
@@ -39,7 +41,7 @@
   "engines": {
     "node": "6.3.1",
     "npm": "3.10.3"
-  }, 
+  },
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack"
   }

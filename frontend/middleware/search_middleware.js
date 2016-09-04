@@ -25,8 +25,6 @@ const SearchMiddleware = ({dispatch}) => next => action => {
 
     case "REQUEST_SEARCH_ITEMS":
       dispatch(LOADING_ACTIONS.startLoading('search-items'));
-      // debugger;
-      // console.log("action.query:", action.query);
       API.fetchSearchItems(action.query, success);
       return next(action);      
       break;

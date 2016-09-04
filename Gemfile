@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
 gem 'react-rails-img'
+gem 'faker'
 
 
 
