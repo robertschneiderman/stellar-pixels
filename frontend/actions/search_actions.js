@@ -14,5 +14,14 @@ export const receiveSearchItems = items => ({
   items
 });
 
+export const requestImageDetail = image => ({
+  type: "REQUEST_IMAGE_DETAIL",
+  image
+})
+
+export const receiveImageDetail = image => ({
+  type: "RECEIVE_IMAGE_DETAIL",
+  image
+})
 
 

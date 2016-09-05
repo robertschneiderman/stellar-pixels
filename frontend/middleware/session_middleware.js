@@ -13,6 +13,7 @@ const SessionMiddleware = ({dispatch}) => next => action => {
 
   switch (action.type) {
     case "SIGNUP":
+    // debugger;
       API.signup(action.user, success, error);
       return next(action);      
       break;

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     # resources :photos, only: [:index]
     get '/photos/search', to: 'photos#search'
+    resources :photos, only: [:show]
   end
 
   root "static_pages#root"

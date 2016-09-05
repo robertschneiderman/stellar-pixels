@@ -13,6 +13,16 @@ export const fetchSearchItems = (query, success, error) => {
   });
 
 };
+
+export const fetchImageDetail = (image, success, error) => {
+  $.ajax({
+    method: 'GET',
+    url: `/api/photos/${image}/`,
+    success,
+    error
+  });
+
+};
   // $.ajax({
   //   method: 'GET',
   //   url: `/api/photos/search/${searchQuery}`,

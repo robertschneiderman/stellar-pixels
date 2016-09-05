@@ -10,7 +10,4 @@ class Photo < ApplicationRecord
     through: :taggings,
     source: :tag
 
-
-
-
 end

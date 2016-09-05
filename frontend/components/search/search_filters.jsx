@@ -12,6 +12,7 @@ class SearchFilters extends React.Component {
 
   filter(e) {
     e.preventDefault();
+    console.log("e:", e);
     this.props.requestSearchItems(e.currentTarget.id);
   }
 
@@ -21,17 +22,17 @@ class SearchFilters extends React.Component {
     return (
       <div className="search-filters-container">
         <div className="btn-ar-container">
-          <button id="wide" onClick={this.filter}><img className="btn-ar" src="/assets/svg/wide-ar.svg" alt=""/></button>
-          <button id="narrow" onClick={this.filter}><img className="btn-ar" src="/assets/svg/narrow-ar.svg" alt=""/></button>
-          <button id="square" onClick={this.filter}><img className="btn-ar" src="/assets/svg/square-ar.svg" alt=""/></button>
+          <button id="wide" className="btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-wide" src="/assets/svg/wide-ar.svg" alt=""/></button>
+          <button id="narrow" className="narrow btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-narrow" src="/assets/svg/narrow-ar.svg" alt=""/></button>
+          <button id="square" className="square btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-square" src="/assets/svg/square-ar.svg" alt=""/></button>
         </div>
 
-        <div className="btn-flushed-container">
-          <button id="center" onClick={this.filter}><img className="btn-ar" src="/assets/svg/center-flushed.svg" alt=""/></button>
-          <button id="sides" onClick={this.filter}><img className="btn-ar" src="/assets/svg/sides-flushed.svg" alt=""/></button>
-        </div>
       </div>
     )
+        // <div className="btn-flushed-container">
+        //   <button id="center" onClick={this.filter}><img className="btn-ar" src="/assets/svg/center-flushed.svg" alt=""/></button>
+        //   <button id="sides" onClick={this.filter}><img className="btn-ar" src="/assets/svg/sides-flushed.svg" alt=""/></button>
+        // </div>
 
     // <div className="radio-buttons">
     //   <input type="radio" name="emotion" id="sad" className="input-hidden" />

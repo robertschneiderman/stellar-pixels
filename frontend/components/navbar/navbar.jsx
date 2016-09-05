@@ -18,9 +18,9 @@ class Navbar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <ul className="navbar-nav fbc">
-          <li className="ibm">
-            <img className="img-avatar ibm" src="https://api.adorable.io/avatars/45/abott@adorable.io.png" />
-            <span className="title-user ibm">{this.props.email}</span>
+          <li className="avatar-container ibm">
+            <img className="avatar-img ibm" src={this.props.avatar} />
+            <span className="avatar-title ibm">{this.props.email}</span>
           </li>
           <li className="ibm" onClick={this.props.logout}>Sign Out</li>
         </ul>
@@ -28,7 +28,7 @@ class Navbar extends React.Component {
     } else {
         // debugger;
       return (  
-        <ul className="navbar-nav">
+        <ul className="navbar-nav fbc">
           <li onClick={this.props.openModal.bind(this, 'signup')}>Sign Up</li>
           <li onClick={this.props.openModal.bind(this, 'login')}>Log In</li>
         </ul>
@@ -37,9 +37,17 @@ class Navbar extends React.Component {
   }
 
   render() {
+    let navbarClass = "navbar fbc";
+    let logoSrc = "/assets/svg/logo.svg";
+
+    if (this.props.location.pathname == '/') {
+      navbarClass = 'navbar-home fbc';
+      logoSrc = '/assets/svg/logo-white.svg'
+    }
+     
     return (
-      <nav className="navbar fbc">
-        <h1 className="logo ibm">Stellar Pixels</h1>
+      <nav className={navbarClass}>
+        <img className="logo ibm" src={logoSrc} alt=""/>
         {this.listItems()}
       </nav>
     )

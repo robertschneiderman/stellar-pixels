@@ -4,7 +4,7 @@ import Loading from './loading';
 import MyPerfectGrid from './perfect_grid';
 // import Gallery from './react_masonry';
 // import Gallery from './react_photo_gallery';
-import Gallery from './Gallery';
+import GalleryContainer from './gallery_container';
 import LazyLoad from 'react-lazy-load';
 
 
@@ -25,12 +25,14 @@ class SearchResults extends React.Component {
   //   }
   // }
 
-  render() {
-
+  render() {  
     this.items = this.props.items.map(item => {
       return (
         {
+          id: item.id,
           src: item.url,
+          email: item.email,
+          avatar: item.avatar,
           height: item.height,
           width: item.width,
           aspectRatio: (item.width / item.height),
@@ -42,11 +44,7 @@ class SearchResults extends React.Component {
     return (
       <Loading loading={this.props.loading} >
         <div className="search-results">
-          <LazyLoad height={762} offsetVertical={300}>
-            <Gallery photos={this.items} disableLightbox={true}>
-              <h1>worked?</h1>
-            </Gallery>
-          </LazyLoad>
+          <GalleryContainer photos={this.items} disableLightbox={true} />
         </div>
       </Loading>
     )

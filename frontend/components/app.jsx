@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarContainer from './navbar/navbar_container';
 import SessionFormContainer from './session_form/session_form_container';
-import Modal from 'react-modal';
+import Modal from 'boron/OutlineModal';
 
 // import GreetingContainer from './greeting/greeting_container';
 
@@ -20,52 +20,30 @@ class App extends React.Component {
     this.setState({modalIsOpen: false});    
   }
 
-  componentWillMount() {
-    Modal.setAppElement('body');    
+
+  showModal(formType) {
+      this.setState({formType: formType});    
+      this.refs.modal.show();
   }
 
-  openModal(formType) {
-    this.setState({modalIsOpen: true, formType});
+  hideModal() {
+      this.refs.modal.hide();
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.refs.subtitle.style.color = '#f00';
-  }
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }  
   
   render() {
-    const customStyles = {
-      content : {
-        bottom: 'auto',
-        left: '50%',
-        overflow: 'visible',
-        padding: '3rem',
-        top: '0%',
-        transform: 'translate3d(-50%, -50%, 0)'         
-      }
-    }
-
-    console.log("this.store:", this.store);
 
     const active = this.state.modalIsOpen ? 'active' : '';
     return (
       <div>
  
-        <NavbarContainer openModal={this.openModal.bind(this)} />    
+        <NavbarContainer openModal={this.showModal.bind(this)} location={this.props.location} />    
 
         <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          enforceFocus={false}
-          style={customStyles}
-          className={active}
+          ref="modal"
+          keyboard={this.callback}
         >
-          <SessionFormContainer closeModal={this.closeModal.bind(this)} formType={this.state.formType} />
+          <SessionFormContainer closeModal={this.hideModal.bind(this)} formType={this.state.formType} />
         </Modal>     
 
 

@@ -4,14 +4,15 @@ import { requestSearchItems } from '../../actions/search_actions';
 
 const mapStateToProps = state => {
   return {
-    items: state.search,
-    loading: state.loading['search-items']
+    items: state.search.items,
+    loading: state.loading['search-items'],
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestSearchItems: items => dispatch(requestSearchItems(items)),
+    requestAllItems: () => dispatch(requestSearchItems(items)),    
+    requestSearchItems: items => dispatch(requestSearchItems(items))
   }
 };
 

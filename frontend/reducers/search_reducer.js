@@ -8,18 +8,20 @@ import router from 'react-router';
 //   errors: []
 // });
 
-const SearchReducer = (state = [], action) => {
+const SearchReducer = (state = {items: [], image: {}}, action) => {
 
   switch (action.type) {
 
     case "RECEIVE_ALL_ITEMS":
-      // router.push('/feed');
       console.log("action:", action);
-      return action.items;
+      return merge({}, state, {items: action.items});
 
-     case "RECEIVE_SEARCH_ITEMS":
-      // router.push('/feed');
-      return action.items;
+    case "RECEIVE_SEARCH_ITEMS":
+      return merge({}, state, {items: action.items});
+
+    case "RECEIVE_IMAGE_DETAIL":
+      // debugger;
+      return merge({}, state, {image: action.image});
 
     default:
       return state;

@@ -1,0 +1,14 @@
+.img-container .avatar-img,
+.img-container .avatar-title,
+.img-container .icon-heart {
+  bottom: -10px;
+  transition: bottom 0.2s;
+}
+
+.img-container:hover .img-footer {
+  opacity: 1;
+}
+
+.img-container:hover .avatar-img, .img-container:hover .avatar-title {
+  bottom: 0px;
+}

@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate() {
@@ -32,22 +32,8 @@ class SessionForm extends React.Component {
     return e => { this.setState({[field]: e.currentTarget.value }); };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const user = this.state;
-    this.props.processForm({user});
-  }
-
-  navLink() {
-    if (this.props.formType === "login") {
-      return <Link to="/signup">sign up instead</Link>;
-    } else {
-      return <Link to="/login">log in instead</Link>
-    }
-  }
-
   renderErrors() {
-    if (this.props.errors) {
+    if (this.props.errors.length > 1) {
       return(
         <ul>
           {this.props.errors.map( (error, i) => (
@@ -58,47 +44,43 @@ class SessionForm extends React.Component {
     }
   }
 
-  handleClick() {
+  handleSubmit(e) {
     // debugger;
+    e.preventDefault();
     const user = this.state;
     this.props.formType === 'login' ? this.props.login({user}) : this.props.signup({user});
   }
 
-  closeModal() {
-
-  }
 
   render() { 
     const formText = this.props.formType === 'signup' ? 'Sign Up' : 'Log In';
 
     return (
-      <div className="form-wrapper">
+      <form onSubmit={this.handleSubmit.bind(this)} className="form-wrapper">
         { this.renderErrors() }
 
-        <button onClick={this.props.closeModal} className="btn btn-modal-close">x</button>
+        <img src="/assets/svg/logo.svg" alt=""/>
 
-        <h2 className="react-modal-title">{formText} to Stellar Pixels</h2>
 
-        <label className="react-modal-label">
-          <span>Email:</span>
-          <input 
-            className="react-modal-input"
-            type="text"
-            onChange={this.update("email")}
-            value={this.state.email}/>
-        </label>
 
-        <label className="react-modal-label">
-          <span>Password:</span>
-          <input
+        <h2 className="react-modal-title">The only place on the Internet for amazing photos</h2>
+
+        <input
+          placeholder="Email"        
           className="react-modal-input"
-          type="password"
-          onChange={this.update("password")}
-          value={this.state.password} />
-        </label>
+          type="text"
+          onChange={this.update("email")}
+          value={this.state.email}/>
 
-        <button onClick={this.handleClick.bind(this)} className="btn react-modal-btn">{formText}</button>
-      </div>
+        <input
+        placeholder="Password"
+        className="react-modal-input"
+        type="password"
+        onChange={this.update("password")}
+        value={this.state.password} />
+
+        <button className="btn react-modal-btn">{formText} to Stellar Pixels</button>
+      </form>
     )
   }
 }

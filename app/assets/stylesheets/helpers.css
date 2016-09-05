@@ -35,6 +35,11 @@
   display: inline-block;
   vertical-align: middle;
 }
+
+.white {
+  color: white;
+}
+
 .mb1 {
   margin-bottom: 1rem;  
 }
