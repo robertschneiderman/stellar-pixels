@@ -14,6 +14,18 @@ export const fetchSearchItems = (query, success, error) => {
 
 };
 
+export const filterSearchItems = (query, success, error) => {
+  const searchQuery = query ? `?filter=${query}` : '';
+
+  $.ajax({
+    method: 'GET',
+    url: `/api/photos/search/${searchQuery}`,
+    success,
+    error
+  });
+
+};
+
 export const fetchImageDetail = (image, success, error) => {
   $.ajax({
     method: 'GET',
@@ -23,13 +35,17 @@ export const fetchImageDetail = (image, success, error) => {
   });
 
 };
-  // $.ajax({
-  //   method: 'GET',
-  //   url: `/api/photos/search/${searchQuery}`,
-  //   success,
-  //   error
-  // });
 
+
+export const createPhoto = (image, success, error) => {
+
+  $.ajax({
+    method: 'POST',
+    url: '/api/photos/',
+    success,
+    error
+  });
+}
 
   // $.ajax({
   //   method: 'GET',

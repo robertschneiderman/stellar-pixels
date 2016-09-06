@@ -6,6 +6,7 @@ import App from './app';
 import Splash from './splash';
 import SessionFormContainer from './session_form/session_form_container';
 import SearchPageContainer from './search/search_page_container';
+import ImageDetailModal from './search/image_detail_modal';
 
 
 class AppRouter extends React.Component {
@@ -38,14 +39,15 @@ class AppRouter extends React.Component {
           // <Route path="/login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}>
           // </Route>
   
-  render() {
+  render() {    
     return(
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Splash} />
           <Route path="/search" component={SearchPageContainer} onEnter={this._ensureLoggedIn.bind(this)}>
-          </Route>
-          <Route path="/photos" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}>
+            <Route path="images/:id" component={ImageDetailModal}>
+
+            </Route>
           </Route>          
         </Route>
       </Router>

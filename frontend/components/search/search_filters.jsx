@@ -13,7 +13,7 @@ class SearchFilters extends React.Component {
   filter(e) {
     e.preventDefault();
     console.log("e:", e);
-    this.props.requestSearchItems(e.currentTarget.id);
+    this.props.filterSearchItems(e.currentTarget.id);
   }
 
   render() {

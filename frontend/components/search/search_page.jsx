@@ -12,6 +12,7 @@ class SearchPage extends React.Component {
         <SearchBarContainer />
         <SearchFiltersContainer />
         <SearchResultsContainer />
+        {this.props.children}
       </div>
     )
   }

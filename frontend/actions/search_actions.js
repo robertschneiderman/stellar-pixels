@@ -6,7 +6,14 @@ export const requestAllItems = () => ({
 
 export const requestSearchItems = query => ({
   type: "REQUEST_SEARCH_ITEMS",
-  query
+  query,
+  page: 1
+});
+
+export const filterSearchItems = query => ({
+  type: "FILTER_SEARCH_ITEMS",
+  query,
+  page: 1
 });
 
 export const receiveSearchItems = items => ({

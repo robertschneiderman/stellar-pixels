@@ -22,18 +22,19 @@ class App extends React.Component {
 
 
   showModal(formType) {
-      this.setState({formType: formType});    
-      this.refs.modal.show();
+    this.setState({formType: formType});    
+    this.refs.modal.show();
   }
 
   hideModal() {
-      this.refs.modal.hide();
+    this.refs.modal.hide();
   }
 
   
   render() {
 
     const active = this.state.modalIsOpen ? 'active' : '';
+
     return (
       <div>
  

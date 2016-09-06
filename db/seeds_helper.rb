@@ -101,12 +101,12 @@ def fetch_photos(should_run = false)
   transportation = JSON.parse(response.body)["photos"]
 
   response = HTTParty.get(
-    'https://api.500px.com/v1/photos?only=Travel&feature=highest_rated&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
+    'https://api.500px.com/v1/photos/search?term=cats&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
 
-  travel = JSON.parse(response.body)["photos"]
+  cats = JSON.parse(response.body)["photos"]
 
 
-  results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(people).concat(performing_arts).concat(sport).concat(still_life).concat(street).concat(transportation).concat(travel)
+  results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(people).concat(performing_arts).concat(sport).concat(still_life).concat(street).concat(transportation).concat(cats)
 
 
   results = results.each_with_index do |obj, i|

@@ -22,30 +22,30 @@ import GalleryContainer from './search/gallery_container';
 
 export const splash = ({children}) => (
 
-    <div className="container-splash">
-      <header className="header-splash">
-        <h1 className="headline-splash">Home to everyones best photos</h1>
-        <p className="headline-sub-splash mb25">Showcase your work, license amazing photos, and stay inspired.</p>
-        <button className="btn btn-large color-blue">Discover</button>
-      </header>
-
-      {children}
-
-    </div>
-
-
-
-
+  <div className="container-splash">
+    <header className="header-splash">
+      <h1 className="headline-splash">Home to everyones best photos</h1>
+      <p className="headline-sub-splash mb25">Showcase your work, license amazing photos, and stay inspired.</p>
+      <button className="btn btn-large color-blue">Discover</button>
+    </header>
+  
+    {children}
+  
+  </div>
 );
 
-    // <div className="sample-container">
+      // <div className="sample-container">
+      
+      //   <div className="sample-search">
+      //     <input className="sample-search-input" type="text" placeholder="Search Stellar Pixels for pictures" />
+      //     <button className="sample-search-btn">Search</button>
+      
+      //   </div>
+      
+      //   <SearchResultsContainer />
+              
+      // </div>
 
-    //   <div className="sample-search">
-    //     <input className="sample-search-input" type="text" placeholder="Search Stellar Pixels for pictures" />
-    //     <button className="sample-search-btn">Search</button>
 
-    //   </div>
-            
-    // </div>
 
 export default splash;

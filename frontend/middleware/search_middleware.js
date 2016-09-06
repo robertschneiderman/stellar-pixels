@@ -22,17 +22,17 @@ const SearchMiddleware = ({dispatch}) => next => action => {
   }
 
   switch (action.type) {
-    case "REQUEST_ALL_ITEMS":
-      dispatch(LOADING_ACTIONS.startLoading('search-items'));
-      API.fetchSearchItems('', successSearch);
-      return next(action);      
-      break;
-
     case "REQUEST_SEARCH_ITEMS":
       dispatch(LOADING_ACTIONS.startLoading('search-items'));
       API.fetchSearchItems(action.query, successSearch);
       return next(action);      
       break;
+
+    case "FILTER_SEARCH_ITEMS":
+      dispatch(LOADING_ACTIONS.startLoading('search-items'));
+      API.filterSearchItems(action.query, successSearch);
+      return next(action);      
+      break;      
 
     case "REQUEST_IMAGE_DETAIL":
       dispatch(LOADING_ACTIONS.startLoading('image-detail'));

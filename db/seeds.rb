@@ -6,7 +6,7 @@ User.destroy_all
 
   response = HTTParty.get('http://uifaces.com/api/v1/random')
 
-  avatar = JSON.parse(response.body)["image_urls"]["normal"]
+  avatar = JSON.parse(response.body)["image_urls"]["bigger"]
 
   User.create!({ email: Faker::Name.name, password: 'password', avatar: avatar})
 end

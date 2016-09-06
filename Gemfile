@@ -12,8 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'httparty'
 gem 'react-rails-img'
 gem 'faker'
-
-
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri

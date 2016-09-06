@@ -28,7 +28,7 @@ class Navbar extends React.Component {
     } else {
         // debugger;
       return (  
-        <ul className="navbar-nav fbc">
+        <ul className="navbar-nav">
           <li onClick={this.props.openModal.bind(this, 'signup')}>Sign Up</li>
           <li onClick={this.props.openModal.bind(this, 'login')}>Log In</li>
         </ul>

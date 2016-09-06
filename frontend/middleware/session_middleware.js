@@ -5,9 +5,10 @@ import {router, hashHistory} from 'react-router';
 
 const SessionMiddleware = ({dispatch}) => next => action => {
 
-  const success = user => (
-    dispatch(ACTIONS.receiveCurrentUser(user))
-  );
+  const success = user => {
+    dispatch(ACTIONS.receiveCurrentUser(user));
+    hashHistory.push('/search');
+  };
 
   const error = xhr => dispatch(ACTIONS.receiveErrors(xhr.responseJSON));
 
