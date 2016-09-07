@@ -28,6 +28,11 @@ const SearchMiddleware = store => next => action => {
     dispatch(ACTIONS.receiveUser(user));
   };      
 
+   const successFeed = items => {
+    dispatch(LOADING_ACTIONS.stopLoading('feed'));    
+    dispatch(ACTIONS.receiveFeedItems(items));
+  };      
+
   const error = xhr => {
     dispatch(LOADING_ACTIONS.stopLoading());
     // dispatch(ACTIONS.receiveErrors(xhr.responseJSON));
@@ -59,8 +64,13 @@ const SearchMiddleware = store => next => action => {
       break;      
 
     case "UPLOAD_PHOTO":
-      debugger;
       API.createPhoto(action.image, successCreate);
+      return next(action);      
+      break; 
+
+    case "REQUEST_FEED_ITEMS":
+      dispatch(LOADING_ACTIONS.startLoading('feed'));      
+      API.fetchFeed(successFeed);
       return next(action);      
       break;      
 

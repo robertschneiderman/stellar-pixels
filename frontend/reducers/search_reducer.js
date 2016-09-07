@@ -25,6 +25,9 @@ const SearchReducer = (state = {items: [], image: {}, page: 1}, action) => {
     case "RECEIVE_USER":
       return merge({}, state, {user: action.user});      
 
+    case "RECEIVE_FEED_ITEMS":
+      return merge({}, state, {items: action.items});      
+
     default:
       return state;
 

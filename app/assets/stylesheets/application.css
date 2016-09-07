@@ -182,6 +182,62 @@
   position: absolute;
   width: 100%;
 }*/
+.feed-container {
+  text-align: center;
+
+}
+
+.feed {
+
+}
+
+.feed-img-container {
+  list-style: none;
+}
+
+.feed-avatar-container {
+
+}
+
+.feed-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ededed;
+  top: -3px;
+}
+
+.feed-avatar-container {
+
+}
+
+.feed-avatar {
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+  width: 2.4rem;;
+
+}
+
+.feed-author-title {
+  vertical-align: middle;
+  font-size: .9rem;
+
+}
+
+.feed-btn-favorites {
+  background-color: #ff4c4c;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 4.5rem;
+  border-color: #ff3333;
+}
 
 .form-wrapper {
   padding: 3rem;

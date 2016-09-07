@@ -40,14 +40,42 @@ class Api::PhotosController < ApplicationController
 
   end
 
+  def feed
+    # broadcasters_ids = current_user.broadcasters.pluck(:id)
+
+    # @photos = Photo.where('broadcaster_id in ?', broadcasters_ids)
+
+    broadcaster_ids = current_user.broadcasters.map(&:id)
+
+    unless broadcaster_ids.empty?
+      @photos = Photo.where('broadcaster_id in ?', broadcaster_ids)
+    else
+      @photos = Photo.all.limit(20)
+    end
+
+    render :index
+
+  end
+
+  # followings - follower_id, broadcaster_id
+
   def create
     p params
-    params[:image]
-
     @photo = Photo.new(photo_params)
+    @photo.user_id = current_user.id
 
     if (@photo.save)
+
+      tags.each do |tag_name|
+        tag = Tag.find_by_name(tag_name) || Tag.create(name: tag_name)
+        Tagging.create(photo_id: @photo.id, tag_id: tag.id)
+      end
+
+      #tag can silently fail!!!
+
       render :show
+    else
+      render json: @photo.errors.full_messages, status: 404
     end
   end
 
@@ -58,6 +86,10 @@ class Api::PhotosController < ApplicationController
 
   def photo_params
     params.require(:image).permit(:url, :title, :description, :width, :height, :favorites)
+  end
+
+  def tags
+    params.require(:image).permit(tags: [])
   end
 
 

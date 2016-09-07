@@ -8,6 +8,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import SearchPageContainer from './search/search_page_container';
 import ImageDetailModal from './search/image_detail_modal';
 import ProfilePageContainer from './users/profile_page_container';
+import FeedPageContainer from './search/feed_page_container';
 
 
 class AppRouter extends React.Component {
@@ -42,14 +43,14 @@ class AppRouter extends React.Component {
   
   render() {    
      // onEnter={this._ensureLoggedIn.bind(this)}
-          // <Route path="/feed" component={FeedPageContainer}>
-
-          // </Route>          
     return(
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={SplashContainer} />
 
+          <Route path="/feed" component={FeedPageContainer}>
+
+          </Route>          
 
           <Route path="/search" component={SearchPageContainer}>
             <Route path="images/:id" component={ImageDetailModal}>

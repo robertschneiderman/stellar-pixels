@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     # resources :photos, only: [:index]
     get '/photos/search', to: 'photos#search'
+    get '/photos/feed', to: 'photos#feed'    
     resources :photos, only: [:show, :create]
   end
 

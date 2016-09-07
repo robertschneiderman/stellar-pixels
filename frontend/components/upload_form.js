@@ -1,5 +1,6 @@
 import React from 'react';
-import Uploader from './search/uploader';
+// import Uploader from './search/uploader';
+import MyDropzone from './search/dropzone';
 // import Container from './/_container';
 
 class UploadForm extends React.Component {
@@ -8,23 +9,37 @@ class UploadForm extends React.Component {
     super(props);
     this.state = {};
     this.upload = this.upload.bind(this);
+    this.getPhoto = this.getPhoto.bind(this);
+    this.inputChange = this.inputChange.bind(this);
   }
 
   upload(e) {
     e.preventDefault();
-    this.props.uploadPhoto(this.state.url);    
+    this.props.uploadPhoto(this.image);    
     this.props.closeModal();    
+  }
+
+  getPhoto(image) {
+    this.image = image;
+  }
+
+  inputChange(e) {
+    if (e.currentTarget.id === 'title') {
+      this.image.title = e.currentTarget.value;
+    } else {
+      this.image.tags = e.currentTarget.value.split(' ');
+    }
   }
 
   render() {
 
     return(
       <div className="upload-form">
-        <Uploader setUrl={(url) => this.setState({url})} />
+        <MyDropzone getPhoto={this.getPhoto} />
         
         <form onSubmit={this.upload}>
-          <input type="text" placeholder="Title" />
-          <input type="text" placeholder="Description" />
+          <input id="title" type="text" placeholder="Title" onChange={this.inputChange} />
+          <input id="tags" type="text" placeholder="Tags" onChange={this.inputChange} />
           <input type="submit"/>
         </form>
       </div>

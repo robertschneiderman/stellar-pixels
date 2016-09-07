@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904020835) do
+ActiveRecord::Schema.define(version: 20160907181050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "followings", force: :cascade do |t|
+    t.integer  "follower_id",    null: false
+    t.integer  "broadcaster_id", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["broadcaster_id"], name: "index_followings_on_broadcaster_id", using: :btree
+    t.index ["follower_id"], name: "index_followings_on_follower_id", using: :btree
+  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "url",                    null: false

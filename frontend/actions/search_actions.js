@@ -44,3 +44,12 @@ export const receiveUser = (user) => {
     user: user
   }
 };
+
+export const requestFeedItems = () => ({
+  type: "REQUEST_FEED_ITEMS"
+});
+
+export const receiveFeedItems = items => ({
+  type: "RECEIVE_FEED_ITEMS",
+  items
+});

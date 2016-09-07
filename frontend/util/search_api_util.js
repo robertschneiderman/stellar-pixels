@@ -56,6 +56,17 @@ export const fetchUser = (user_id, success, error) => {
   });
 }
 
+export const fetchFeed = (success, error) => {
+  $.ajax({
+    method: 'GET',
+    url: `/api/photos/feed`,
+    success,
+    error
+  });
+}
+
+// /api/photos/feed/
+
   // $.ajax({
   //   method: 'GET',
   //   url: `/api/photos/${searchQuery}`,

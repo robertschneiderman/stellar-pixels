@@ -2,7 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 
-class Zone extends React.Component {
+class MyDropzone extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,19 +19,31 @@ class Zone extends React.Component {
   }
 
   handleImageUpload(file) {
-
     let upload = request.post('https://api.cloudinary.com/v1_1/stellar-pixels/upload')
                      .field('upload_preset', "icqiuqif")
                      .field('file', file);
+
+    let that = this;
 
     upload.end((err, response) => {
       if (err) {console.error(err);}
 
       if (response.body.secure_url !== '') {
-        this.setState({
+        that.setState({
           uploadedFileCloudinaryUrl: response.body.secure_url
         });
-        // this.props.setPhotoUrl(response.body.secure_url);
+
+        console.log("response.body:", response.body);
+
+        let image = {
+          url: response.body.secure_url,
+          height: response.body.height,
+          width: response.body.width,
+          favorites: 0
+        }
+        
+        // debugger;
+        that.props.getPhoto(image);
       }
     });
   }
@@ -69,4 +81,4 @@ class Zone extends React.Component {
   }
 }
 
-export default Zone;
+export default MyDropzone;
