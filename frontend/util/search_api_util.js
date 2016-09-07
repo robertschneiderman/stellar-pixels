@@ -37,11 +37,10 @@ export const fetchImageDetail = (image, success, error) => {
 
 
 export const createPhoto = (image, success, error) => {
-
   $.ajax({
     method: 'POST',
     url: '/api/photos/',
-    data: image,
+    data: {image: image},
     success,
     error
   });

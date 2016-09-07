@@ -10,19 +10,24 @@ export default class ContactForm extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.onImageDrop = this.onImageDrop.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
     this.state = {
       uploadedFileCloudinaryUrl: ''
     };
   }  
 
-  onImageDrop(files) {
+  onImageDrop(files) {    
     this.setState({
       uploadedFile: files[0]
     });
 
     this.handleImageUpload(files[0]);
   }  
+
+  temp() {
+    console.log("we're here!");
+  }
 
   handleImageUpload(file) {
     let upload = request.post(CLOUDINARY_UPLOAD_URL)
@@ -40,15 +45,17 @@ export default class ContactForm extends React.Component {
           uploadedFileCloudinaryUrl: response.body.secure_url
         });
 
+
         this.props.setUrl(response.body.secure_url);
       }
     });
   }  
 
   render() {
+    console.log("this.state:", this.state);
     const upload = () => (
         <Dropzone
-          onDrop={this.onImageDrop}
+          onDrop={this.temp}
           multiple={false}
           accept="image/*">
           {this.state.uploadedFile === null ?

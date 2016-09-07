@@ -59,6 +59,7 @@ const SearchMiddleware = store => next => action => {
       break;      
 
     case "UPLOAD_PHOTO":
+      debugger;
       API.createPhoto(action.image, successCreate);
       return next(action);      
       break;      

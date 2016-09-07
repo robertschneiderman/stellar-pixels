@@ -42,12 +42,22 @@ class Api::PhotosController < ApplicationController
 
   def create
     p params
-    #render :show
+    params[:image]
+
+    @photo = Photo.new(photo_params)
+
+    if (@photo.save)
+      render :show
+    end
   end
 
 
   def show
     @photo = Photo.find_by_id(params[:id])
+  end
+
+  def photo_params
+    params.require(:image).permit(:url, :title, :description, :width, :height, :favorites)
   end
 
 

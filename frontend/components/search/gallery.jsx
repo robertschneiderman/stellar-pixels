@@ -128,6 +128,8 @@ class Gallery extends React.Component{
 		if (this.props.disableLightbox){
             let image = this.props.photos[k];
 		    photoPreviewNodes.push(
+                // <ImageResult onClick={() => hashHistory.push(`/search/images/${image.id}`)} key={k} style={style}>
+
                 <div className="img-container" key={k} onClick={() => hashHistory.push(`/search/images/${image.id}`)} key={k} style={style}>
                   <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * image.aspectRatio} alt="" />
                   <div className="img-footer fbc">

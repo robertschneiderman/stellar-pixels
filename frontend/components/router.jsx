@@ -42,14 +42,14 @@ class AppRouter extends React.Component {
   
   render() {    
      // onEnter={this._ensureLoggedIn.bind(this)}
+          // <Route path="/feed" component={FeedPageContainer}>
+
+          // </Route>          
     return(
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={SplashContainer} />
 
-          <Route path="/feed" component={FeedPageContainer}>
-
-          </Route>          
 
           <Route path="/search" component={SearchPageContainer}>
             <Route path="images/:id" component={ImageDetailModal}>
