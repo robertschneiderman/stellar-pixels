@@ -1,34 +1,46 @@
-
-export const requestAllItems = () => ({
-  type: "REQUEST_ALL_ITEMS",
-});
-
-
-export const requestSearchItems = query => ({
+export const requestSearchItems = (query, page) => ({
   type: "REQUEST_SEARCH_ITEMS",
   query,
-  page: 1
+  page: page
 });
 
-export const filterSearchItems = query => ({
+export const filterSearchItems = (query, page) => ({
   type: "FILTER_SEARCH_ITEMS",
   query,
-  page: 1
+  page: page
 });
 
-export const receiveSearchItems = items => ({
+export const receiveSearchItems = (items, query, page) => ({
   type: "RECEIVE_SEARCH_ITEMS",
-  items
+  items,
+  query,
+  page
 });
 
 export const requestImageDetail = image => ({
   type: "REQUEST_IMAGE_DETAIL",
   image
-})
+});
 
 export const receiveImageDetail = image => ({
   type: "RECEIVE_IMAGE_DETAIL",
   image
-})
+});
 
+export const uploadPhoto = image => ({
+  type: "UPLOAD_PHOTO",
+  image
+});
 
+export const requestUserPhotos = (user_id) => ({
+  type: "REQUEST_USER_PHOTOS",
+  user_id: user_id
+});
+
+export const receiveUser = (user) => {
+  console.log("user:", user);
+  return {
+    type: "RECEIVE_USER",
+    user: user
+  }
+};

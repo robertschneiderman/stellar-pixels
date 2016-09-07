@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestSearchItems: search => dispatch(ACTIONS.requestSearchItems(search)),
+    requestSearchItems: (query, page) => dispatch(ACTIONS.requestSearchItems(query, page))
   }
 };
 

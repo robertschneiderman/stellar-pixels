@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import App from './app';
-import Splash from './splash';
+import SplashContainer from './splash_container';
 import SessionFormContainer from './session_form/session_form_container';
 import SearchPageContainer from './search/search_page_container';
 import ImageDetailModal from './search/image_detail_modal';
+import ProfilePageContainer from './users/profile_page_container';
 
 
 class AppRouter extends React.Component {
@@ -40,19 +41,33 @@ class AppRouter extends React.Component {
           // </Route>
   
   render() {    
+     // onEnter={this._ensureLoggedIn.bind(this)}
     return(
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={Splash} />
-          <Route path="/search" component={SearchPageContainer} onEnter={this._ensureLoggedIn.bind(this)}>
+          <IndexRoute component={SplashContainer} />
+
+          <Route path="/feed" component={FeedPageContainer}>
+
+          </Route>          
+
+          <Route path="/search" component={SearchPageContainer}>
             <Route path="images/:id" component={ImageDetailModal}>
 
             </Route>
-          </Route>          
+          </Route>
+
+          <Route path="/users/:id" component={ProfilePageContainer}>
+
+          </Route>
+
         </Route>
       </Router>
     )
   }
+          // <Route path="/users/:id" component={ProfilePageContainer}>
+
+          // </Route>
 }
 
 export default AppRouter;

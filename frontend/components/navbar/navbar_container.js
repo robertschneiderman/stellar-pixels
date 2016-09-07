@@ -8,8 +8,11 @@ const mapStateToProps = state => {
 
   const avatar = state.session.currentUser && state.session.currentUser.avatar ? state.session.currentUser.avatar : ''
 
+  const id = state.session.currentUser && state.session.currentUser.id ? state.session.currentUser.id : ''
+
   return {
     loggedIn: !!state.session.currentUser,
+    id: id,
     email: email,
     avatar: avatar
   }

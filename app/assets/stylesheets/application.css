@@ -5,6 +5,7 @@
 @import url("justified_gallery");
 @import url("radio_buttons");
 @import url("hovers");
+@import url("file_picker");
 
 .btn {
   color: #fff;
@@ -17,8 +18,41 @@
     color: #fff;
 */
 
+.author-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+}
+
+.author-card-avatar {
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  width: 3.9rem !important;
+}
+
+.author-card-text {
+
+}
+
+.author-card-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  display: block;
+
+}
+
+.author-card-button {
+  border: 1px solid #39bbd0;
+  color: #39bbd0;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.5rem;
+
+}
+
 .avatar-container {
-  margin-right: 2rem;
+  margin-right: 2.6rem;
   
 }
 
@@ -26,7 +60,7 @@
   border-radius: 50%;
   bottom: 0;
   width: 3rem;
-  margin-right: 0.6rem;
+  margin-right: 0.1rem;
   transition: bottom 0.2s;
 }
 
@@ -34,12 +68,25 @@
 
 }
 
+
 .btn-ar-container {
 
 }
 
 .btn-ar {
   outline: 0;
+}
+
+.btn-upload-container {
+  margin-right: 3.2rem;
+}
+
+.btn-upload-img {
+  width: 1.9rem;
+  margin-right: 0.4rem;
+}
+
+.btn-upload-text {
 }
 
 .btn-wide {
@@ -96,9 +143,38 @@
   background: url("bg-splash.jpg");
   background-size: cover;
   padding: 15rem 0;
-  position: absolute;
   width: 100%;
   top: 0;
+}
+
+.dropzone-wrapper {
+  padding: 3rem 2rem;
+  border: 2px dashed #87c6fb;
+  text-align: center;
+  /*z-index: 9999;*/
+}
+
+.dropzone {
+  
+}
+
+.dropzone-area {
+  padding: 2rem;
+  line-height: 1.4; 
+  color: #aaa;
+  font-size: 1.5rem;  
+}
+
+.dropzone-active:after {
+/*  background-image: url("svg/upload-icon.svg");
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 300px;
+  width: 300px;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 9999;*/
 }
 
 /*#Gallery > div:after {
@@ -171,39 +247,6 @@
   width: 300px;
 }
 
-.author-card {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-
-}
-
-.author-card-avatar {
-  border-radius: 50%;
-  margin-right: 0.7rem;
-  width: 3.9rem !important;
-}
-
-.author-card-text {
-
-}
-
-.author-card-name {
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-  display: block;
-
-}
-
-.author-card-button {
-  border: 1px solid #39bbd0;
-  color: #39bbd0;
-  border-radius: 3px;
-  font-size: 0.8rem;
-  padding: 0.3rem 0.5rem;
-
-}
-
 .img-footer {
   position: absolute;
   bottom: 0px;
@@ -237,6 +280,8 @@
 }
 
 .list-inline {
+  list-style: none;
+  display: inline-block;  
 }
 
 .list-inline li {
@@ -259,6 +304,8 @@
 .navbar-home {
   padding: 2rem 4rem;
   z-index: 8000;
+  position: absolute;
+  width: 100%;;
 }
 
 .navbar-home .navbar-nav > li {
@@ -278,9 +325,76 @@
   /*text-align: right;*/
 }
 
+.navbar-nav {
+  padding: 1rem 0;
+}
+
 .navbar-nav > li {
   cursor: pointer;
   display: inline-block;;;
+}
+
+.profile-intro {
+  text-align: center;
+
+}
+
+.profile-hero {
+  height: 33rem;
+  width: 100%;
+  background-size: cover;
+}
+
+.profile-info {
+  display: inline-block;
+  text-align: center;;;
+
+}
+
+.profile-avatar {
+  border-radius: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 6.6rem;
+  border: 3px solid white;
+
+}
+
+.profile-title {
+  top: -2rem;
+  font-size: 2rem;
+  color: #555852;
+
+}
+
+.profile-follow {
+  background-size: cover;
+  border-radius: 3px;
+  position: absolute;
+  bottom: -2.3rem;
+  right: 2rem;
+  height: 30px;
+  font-weight: bold;
+  line-height: 28px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(52, 191, 73);
+  text-shadow: rgb(0, 136, 204) 0px 1px 0px;
+  border-color: rgb(47, 171, 65);
+  border-image: initial;
+  transition: background-color 0.1s ease-in-out;
+  font-size: 0.9rem;
+  padding: 0px 14px;
+
+}
+
+.profile-stats {
+  list-style: none;
+  
+}
+
+.profile-stat {
+  color: rgb(161, 174, 183);
+
 }
 
 
@@ -313,7 +427,8 @@
   margin-top: 0;
   line-height: 1.5;
   font-family: serf;
-  font-style: italic;  
+  font-style: italic;
+  margin-bottom: 1rem;  
 }
 
 .react-modal-label {
@@ -354,6 +469,42 @@
   width: 100%;
   font-size: 1.1rem;
 } 
+
+.sample-container {
+  background-color: #f3f3f3;
+  padding: 3rem 0;  
+}
+
+.sample-search {
+  text-align: center;
+  height: 4rem;
+}
+
+.sample-search-title {
+  color: #444;
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1.6rem;
+  font-family: Lato;;
+}
+
+.sample-search-input {
+  width: 34rem;
+  padding: 1.2rem;
+  height: 100%;
+  vertical-align: middle;
+  outline: 0;
+}
+
+.sample-search-btn {
+  background-color: #56a9f3;
+  vertical-align: middle;
+  color: #fff;
+  height: 100%;
+
+}
+
 
 .searchbar-container {
   height: 5rem;

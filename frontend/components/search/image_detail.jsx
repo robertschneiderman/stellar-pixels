@@ -8,8 +8,6 @@ class ImageDetail extends React.Component {
   }
 
   render() {
-    console.log("this.props (inside img-detail):", this.props);
-
     const style = {
       width: this.props.image.width
     };

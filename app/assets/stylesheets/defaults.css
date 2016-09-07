@@ -15,6 +15,6 @@ button:hover, input[type="submit"]:hover {
   -webkit-filter: brightness(85%);  
 }
 
-p {
+h1, h2, h3, ul, p {
   margin: 0;
 }

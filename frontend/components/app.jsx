@@ -2,6 +2,7 @@ import React from 'react';
 import NavbarContainer from './navbar/navbar_container';
 import SessionFormContainer from './session_form/session_form_container';
 import Modal from 'boron/OutlineModal';
+import UploadFormContainer from './upload_form_container';
 
 // import GreetingContainer from './greeting/greeting_container';
 
@@ -21,16 +22,23 @@ class App extends React.Component {
   }
 
 
-  showModal(formType) {
+  showSessionModal(formType) {
     this.setState({formType: formType});    
-    this.refs.modal.show();
+    this.refs.sessionModal.show();
   }
 
-  hideModal() {
-    this.refs.modal.hide();
+  showUploadModal() {
+    this.refs.uploadModal.show();
+  }  
+
+  hideSessionModal() {
+    this.refs.sessionModal.hide();
   }
 
-  
+  hideUploadModal() {
+    this.refs.sessionModal.hide();
+  }
+    
   render() {
 
     const active = this.state.modalIsOpen ? 'active' : '';
@@ -38,21 +46,31 @@ class App extends React.Component {
     return (
       <div>
  
-        <NavbarContainer openModal={this.showModal.bind(this)} location={this.props.location} />    
+        <NavbarContainer 
+          openSessionModal={this.showSessionModal.bind(this)}
+          openUploadModal={this.showUploadModal.bind(this)}
+          location={this.props.location}
+        />    
 
         <Modal
-          ref="modal"
+          ref="sessionModal"
           keyboard={this.callback}
         >
-          <SessionFormContainer closeModal={this.hideModal.bind(this)} formType={this.state.formType} />
-        </Modal>     
+          <SessionFormContainer closeModal={this.hideSessionModal.bind(this)} formType={this.state.formType} />
+        </Modal> 
 
+        <Modal
+          ref="uploadModal"
+        >
+          <UploadFormContainer closeModal={this.hideUploadModal.bind(this)} />
+        </Modal>  
 
         {this.props.children}
 
       </div>
       
     )     
+              // <UploadForm />
   }
 } 
 

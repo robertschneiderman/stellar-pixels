@@ -2,20 +2,19 @@ var appendApiKeyHeader = function( xhr ) {
   xhr.setRequestHeader('Api-Key', 'uax7gur8ac925x3acrqktf6j')
 }
 
-export const fetchSearchItems = (query, success, error) => {
-  const searchQuery = query ? `?search=${query}` : '';
-
+export const fetchSearchItems = (query, page, success, error) => {
   $.ajax({
     method: 'GET',
-    url: `/api/photos/search/${searchQuery}`,
-    success,
+    data: {search: query, page},
+    url: `/api/photos/search`,
+    success: success(query, page),
     error
   });
 
 };
 
-export const filterSearchItems = (query, success, error) => {
-  const searchQuery = query ? `?filter=${query}` : '';
+export const filterSearchItems = (query, page, success, error) => {
+  const searchQuery = query ? `?filter=${query}&page=${page}` : '';
 
   $.ajax({
     method: 'GET',
@@ -42,6 +41,17 @@ export const createPhoto = (image, success, error) => {
   $.ajax({
     method: 'POST',
     url: '/api/photos/',
+    data: image,
+    success,
+    error
+  });
+};
+
+
+export const fetchUser = (user_id, success, error) => {
+  $.ajax({
+    method: 'GET',
+    url: `/api/users/${user_id}`,
     success,
     error
   });

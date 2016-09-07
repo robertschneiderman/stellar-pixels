@@ -1,0 +1,26 @@
+import React from 'react';
+import { hashHistory } from 'react-router';
+// import Container from './/_container';
+
+class UserTag extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  goToUserPage() {
+    hashHistory.push(`/users/${this.props.id}`)
+  }
+
+
+  render() {
+    return(
+      <li className="avatar-container ibm">
+        <img className="avatar-img ibm" onClick={this.goToUserPage.bind(this)} src={this.props.avatar} />
+        <span className="avatar-title ibm" onClick={this.goToUserPage.bind(this)}>{this.props.email}</span>
+      </li>      
+    )
+  }
+}
+
+export default UserTag;

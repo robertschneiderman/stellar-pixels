@@ -25,8 +25,9 @@ const SessionMiddleware = ({dispatch}) => next => action => {
       break;
 
     case "LOGOUT":
+      debugger;
       API.logout(() => next(action));
-      // hashHistory.push('/');
+      hashHistory.push('/');
       break;
 
     default:

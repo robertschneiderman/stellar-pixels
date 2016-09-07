@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Link, hashHistory } from 'react-router';
+import UserTag from '../navbar/user_tag'
 
 class Navbar extends React.Component {
 
@@ -17,10 +18,11 @@ class Navbar extends React.Component {
   listItems() {
     if (this.props.loggedIn) {
       return (
-        <ul className="navbar-nav fbc">
-          <li className="avatar-container ibm">
-            <img className="avatar-img ibm" src={this.props.avatar} />
-            <span className="avatar-title ibm">{this.props.email}</span>
+        <ul className="navbar-nav">
+          <UserTag id={this.props.id} avatar={this.props.avatar} email={this.props.email} />
+          <li onClick={this.props.openUploadModal} className="btn-upload-container ibm">
+            <img className="btn-upload-img ibm" src="/assets/svg/upload.svg" alt=""/>
+            <span className="btn-upload-text ibm">Upload</span>
           </li>
           <li className="ibm" onClick={this.props.logout}>Sign Out</li>
         </ul>
@@ -29,8 +31,8 @@ class Navbar extends React.Component {
         // debugger;
       return (  
         <ul className="navbar-nav">
-          <li onClick={this.props.openModal.bind(this, 'signup')}>Sign Up</li>
-          <li onClick={this.props.openModal.bind(this, 'login')}>Log In</li>
+          <li onClick={this.props.openSessionModal.bind(this, 'signup')}>Sign Up</li>
+          <li onClick={this.props.openSessionModal.bind(this, 'login')}>Log In</li>
         </ul>
       )
     }

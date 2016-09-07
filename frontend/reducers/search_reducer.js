@@ -8,20 +8,22 @@ import router from 'react-router';
 //   errors: []
 // });
 
-const SearchReducer = (state = {items: [], image: {}}, action) => {
+const SearchReducer = (state = {items: [], image: {}, page: 1}, action) => {
 
   switch (action.type) {
 
-    case "RECEIVE_ALL_ITEMS":
-      console.log("action:", action);
-      return merge({}, state, {items: action.items});
-
     case "RECEIVE_SEARCH_ITEMS":
-      return merge({}, state, {items: action.items});
+
+      let newState = merge({}, state, {query: action.query, page: state.page + 1});
+      newState.items = newState.items.concat(action.items);
+      return newState;
 
     case "RECEIVE_IMAGE_DETAIL":
       // debugger;
       return merge({}, state, {image: action.image});
+
+    case "RECEIVE_USER":
+      return merge({}, state, {user: action.user});      
 
     default:
       return state;

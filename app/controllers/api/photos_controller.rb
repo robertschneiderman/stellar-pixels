@@ -1,9 +1,9 @@
 class Api::PhotosController < ApplicationController
 
   def search
-
+    # debugger
     # @photos = Photo.where(title: params[:search])
-    if params[:search]
+    unless params[:search] == ''
 
       @photos = []
 
@@ -12,8 +12,14 @@ class Api::PhotosController < ApplicationController
       end
 
       @photos = @photos.uniq { |photo_ar| photo_ar.id }
+
+      @photos = @photos.page(params[:page]).per(20)
+ 
       # Photo.where("title LIKE ?", "%#{params[:search]}%")
     else
+      p params[:page]
+
+      # @photos = Photo.all
       @photos = Photo.page(params[:page]).per(20)
     end
 
@@ -35,7 +41,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def create
-
+    p params
     #render :show
   end
 

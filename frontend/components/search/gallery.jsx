@@ -4,6 +4,7 @@ import Lightbox from 'react-images';
 import Modal from 'boron/OutlineModal';
 import ImageDetail from './image_detail';
 import { hashHistory } from 'react-router';
+import Infinite from 'react-infinite';
 // import LazyLoad from 'react-lazy-load';
 
 class Gallery extends React.Component{
@@ -67,6 +68,22 @@ class Gallery extends React.Component{
         this.refs.modal.hide();
     }  
 
+    handleInfiniteLoad() {
+        var that = this;
+        this.setState({
+            isInfiniteLoading: true
+        });
+        setTimeout(function() {
+            var elemLength = that.state.elements.length,
+                newElements = that.buildElements(elemLength, elemLength + 1000);
+            that.setState({
+                isInfiniteLoading: false,
+                elements: that.state.elements.concat(newElements)
+            });
+        }, 2500);
+    }
+
+
 
     render(){
 
@@ -104,15 +121,14 @@ class Gallery extends React.Component{
                 if (k == this.props.photos.length){
                     break;
                 }
-		var src = this.props.photos[k].src;
+		var src = this.props.photos[k].url;
 
         let modal;        
 
 		if (this.props.disableLightbox){
             let image = this.props.photos[k];
 		    photoPreviewNodes.push(
-            <div>
-                <div className="img-container" onClick={() => hashHistory.push(`/search/images/${image.id}`)} key={k} style={style}>
+                <div className="img-container" key={k} onClick={() => hashHistory.push(`/search/images/${image.id}`)} key={k} style={style}>
                   <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * image.aspectRatio} alt="" />
                   <div className="img-footer fbc">
                     <div className="ibm">
@@ -125,7 +141,6 @@ C2.5,10.3,13.1,20.6,13.1,21l0,0c0-0.4,10.6-10.7,12.4-12.7c1.8-2,3.6-5,3.6-7.3C29
                     </svg>
                   </div>
                 </div>
-            </div>
 		    );
 		}
             }
@@ -163,7 +178,7 @@ C2.5,10.3,13.1,20.6,13.1,21l0,0c0-0.4,10.6-10.7,12.4-12.7c1.8-2,3.6-5,3.6-7.3C29
 	    );
 	} else if (this.props.disableLightbox ) {
         <div id="Gallery" className="clearfix">
-            {photoPreviewNodes}
+                {photoPreviewNodes}
         </div>        
     }
 	else{
