@@ -48,6 +48,10 @@ const SearchMiddleware = store => next => action => {
     dispatch(receiveCurrentUser(user));
   };      
 
+  const successFavorite = user => {
+    dispatch(receiveCurrentUser(user));
+  };      
+
   const error = xhr => {
     dispatch(LOADING_ACTIONS.stopLoading());
     // dispatch(ACTIONS.receiveErrors(xhr.responseJSON));
@@ -100,7 +104,12 @@ const SearchMiddleware = store => next => action => {
     case "FOLLOW":
       API.follow(action.broadcaster_id, successFollow);
       return next(action);      
-      break;        
+      break;
+
+    case "FAVORITE":
+      API.favorite(action.photo_id, successFavorite);
+      return next(action);      
+      break;              
 
     default:
       return next(action);

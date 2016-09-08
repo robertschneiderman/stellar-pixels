@@ -6,6 +6,7 @@
 @import url("radio_buttons");
 @import url("hovers");
 @import url("file_picker");
+@import url("animations");
 
 .btn {
   color: #fff;
@@ -96,6 +97,7 @@
 
 .btn-favorites {
   background-color: #ff4c4c;
+  border-color: #ff3333;
   color: #fff;
   padding: 0.3rem 0.7rem;
   border-radius: 4px;
@@ -104,6 +106,28 @@
   align-items: center;
   width: 4.5rem;
   border-color: #ff3333;
+}
+
+.btn-favorites.hearted {
+  background-color: #525558;
+  border-color: #46484b;
+  animation: heart_animation 0.8s linear both;
+}
+
+.btn-favorites .icon-heart .shape {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 3px;
+  stroke-dasharray: 150;
+  stroke-linejoin: round;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.btn-favorites.hearted .icon-heart .shape {
+  fill: #fff;
+  stroke-opacity: 0;
 }
 
 .btn-follow, .btn-unfollow {

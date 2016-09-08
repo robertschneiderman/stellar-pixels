@@ -1,4 +1,4 @@
-.animation-heart {
+/*.animation-heart {
   animation: heart_animation 0.8s linear both;
   animation-name: heart_animation;
   animation-duration: 0.8s;
@@ -8,7 +8,7 @@
   animation-direction: initial;
   animation-fill-mode: both;
   animation-play-state: initial;
-}
+}*/
 
 @keyframes heart_animation {
   0% {

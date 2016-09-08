@@ -10,4 +10,9 @@ class Photo < ApplicationRecord
     through: :taggings,
     source: :tag
 
+  has_many :favorites,
+    primary_key: :id,
+    foreign_key: :photo_id,
+    class_name: :Favorite
+
 end

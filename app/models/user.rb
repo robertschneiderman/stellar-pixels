@@ -22,6 +22,13 @@ class User < ApplicationRecord
     through: :followings,
     source: :follower
 
+  has_many :favorites,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Favorite
+
+
+
 
   def password= password
     self.password_digest = BCrypt::Password.create(password)

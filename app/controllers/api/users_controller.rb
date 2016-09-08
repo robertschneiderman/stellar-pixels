@@ -32,6 +32,25 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+
+  def favorite
+    photo_id = params[:id]
+
+    favorite = Favorite.find_by_user_id_and_photo_id(current_user.id, photo_id)
+
+    # debugger
+
+    if favorite
+      Favorite.delete(favorite.id)
+    else
+      Favorite.create(user_id: current_user.id, photo_id: photo_id)
+    end
+
+    @user = current_user
+
+    render :show
+  end
+
   private
 
   def user_params

@@ -1,17 +1,15 @@
 import {connect} from 'react-redux';
 import ImageDetail from './image_detail';
+import { favorite } from '../../actions/search_actions';
+
 
 const mapStateToProps = (state, {imageId}) => {
-  // console.log("params:", params);
-
-  console.log("imageId:", imageId);
-
   const image = state.search.items.find((item) => {
-    console.log("item.id:", item.id);
     if (item.id == imageId) return true;
   });
 
   return {
+    currentUser: state.session.currentUser,
     image: image
   }
 };
@@ -19,6 +17,7 @@ const mapStateToProps = (state, {imageId}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     requestSearchItems: items => dispatch(requestSearchItems(items)),
+    favorite: photo_id => dispatch(favorite(photo_id))
   }
 };
 

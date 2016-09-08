@@ -112,11 +112,11 @@ def fetch_photos(should_run = false)
   results = results.each_with_index do |obj, i|
     unless Photo.find_by_api_id(obj["id"])
       user_id = Random.rand(1..100)
+        # favorites: Random.rand(0..8),
       photo = {
         api_id: obj["id"],
         url: obj["image_url"],
         title: obj["name"],
-        favorites: Random.rand(0..8),
         height: obj["height"],
         width: obj["width"],
         user_id: user_id

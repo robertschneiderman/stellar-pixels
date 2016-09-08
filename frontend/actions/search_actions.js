@@ -71,3 +71,10 @@ export const follow = (broadcaster_id) => ({
   type: "FOLLOW",
   broadcaster_id
 });
+
+export const favorite = (photo_id) => {
+  return {
+    type: "FAVORITE",
+    photo_id
+  }
+};
