@@ -1,50 +1,18 @@
 class Api::PhotosController < ApplicationController
 
   def search
-    # debugger
-    # @photos = Photo.where(title: params[:search])
     unless params[:search] == ''
-
-      @photos = []
-
-      Tag.where("name LIKE ?", "%#{params[:search]}%").to_a.each do |tag| 
-        @photos.concat(tag.photos)
-      end
-
-      @photos = @photos.uniq { |photo_ar| photo_ar.id }
-
-      @photos = @photos.page(params[:page]).per(20)
- 
-      # Photo.where("title LIKE ?", "%#{params[:search]}%")
+      @photos = Photo.joins(:tags).where("name LIKE ?", "%#{params[:search]}%").includes(:user).distinct      
     else
-      p params[:page]
-
-      # @photos = Photo.all
-      @photos = Photo.page(params[:page]).per(20)
+      @photos = Photo.all
     end
-
-    if params[:filter]
-      if params[:filter] == "wide"
-        @photos = @photos.where("width / height >= 1.33").to_a
-      elsif params[:filter] == "square"
-        @photos = @photos.where("width / height <= 1.33 AND width / height >= .75").to_a
-      elsif params[:filter] == "narrow"
-        @photos = @photos.where("width / height <= .75").to_a
-      end
-    end
-
-    # @photos = @photos.page(1).per(20)
-    # @photos = @photos.take(10)
+      @photos = @photos.page(params[:page]).per(10)
 
     render :index
 
   end
 
   def feed
-    # broadcasters_ids = current_user.broadcasters.pluck(:id)
-
-    # @photos = Photo.where('broadcaster_id in ?', broadcasters_ids)
-
     broadcaster_ids = current_user.broadcasters.map(&:id)
 
     unless broadcaster_ids.empty?
@@ -94,3 +62,13 @@ class Api::PhotosController < ApplicationController
 
 
 end
+
+    # if params[:filter]
+    #   if params[:filter] == "wide"
+    #     @photos = @photos.where("width / height >= 1.33").to_a
+    #   elsif params[:filter] == "square"
+    #     @photos = @photos.where("width / height <= 1.33 AND width / height >= .75").to_a
+    #   elsif params[:filter] == "narrow"
+    #     @photos = @photos.where("width / height <= .75").to_a
+    #   end
+    # end   

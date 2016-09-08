@@ -41,13 +41,15 @@ const SearchMiddleware = store => next => action => {
   switch (action.type) {
     case "REQUEST_SEARCH_ITEMS":
       dispatch(LOADING_ACTIONS.startLoading('search-items'));
+      // API.fetchSearchItems(action.query, store.getState().search.page, successSearch);
+      
       API.fetchSearchItems(action.query, store.getState().search.page, successSearch);
       return next(action);      
       break;
 
     case "FILTER_SEARCH_ITEMS":
       dispatch(LOADING_ACTIONS.startLoading('search-items'));
-      API.filterSearchItems(action.query, store.getState().search.page, successSearch);
+      API.filterSearchItems(action.query, action.page, successSearch);
       return next(action);      
       break;      
 

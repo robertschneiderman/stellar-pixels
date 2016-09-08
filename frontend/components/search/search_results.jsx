@@ -20,7 +20,7 @@ class SearchResults extends React.Component {
   }
 
   componentDidMount() { 
-    // this.props.requestSearchItems('', 1);
+
   }
 
   // componentWillReceiveProps() {
@@ -34,7 +34,8 @@ class SearchResults extends React.Component {
   // }
 
   _handleWaypointEnter() {
-    this.props.requestSearchItems('', this.props.page);    
+    debugger;
+    this.props.requestSearchItems(this.props.query, this.props.page);    
   }
 
   render() {  

@@ -36,7 +36,7 @@ class App extends React.Component {
   }
 
   hideUploadModal() {
-    this.refs.sessionModal.hide();
+    this.refs.uploadModal.hide();
   }
     
   render() {

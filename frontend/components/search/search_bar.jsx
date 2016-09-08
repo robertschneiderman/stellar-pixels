@@ -10,7 +10,8 @@ class SearchBar extends React.Component {
     e.preventDefault();
     console.log("e.currentTarget.value:", e.currentTarget.value);
     // console.log("this.props.requestSearchItems:", this.props.requestSearchItems);
-    this.props.requestSearchItems(e.currentTarget.value);
+
+    this.props.requestSearchItems(e.currentTarget.value, 1);
   }
 
   render() {
@@ -26,3 +27,11 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
+
+
+
+// build redux cycles for
+// 1) search bar and feed (clearing the feed on new search term) and resetting the page count
+// 2) Button will get prop saying whether it is followed or unfollowed. Outside the button I will compare the current user id with the array of broadcaster id's that get included with the current user, to determine if followed. Inside button have one/two actions for following/unfollowing.
+
+

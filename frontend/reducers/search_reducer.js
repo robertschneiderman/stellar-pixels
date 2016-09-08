@@ -14,7 +14,7 @@ const SearchReducer = (state = {items: [], image: {}, page: 1}, action) => {
 
     case "RECEIVE_SEARCH_ITEMS":
 
-      let newState = merge({}, state, {query: action.query, page: state.page + 1});
+      let newState = merge({}, state, {query: action.query, page: (state.page + 1)});
       newState.items = newState.items.concat(action.items);
       return newState;
 
