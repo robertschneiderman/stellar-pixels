@@ -16,6 +16,22 @@ class Api::UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
   end
 
+
+  def follow
+    # debugger
+    broadcaster_id = params[:id]
+    following = Following.find_by_follower_id_and_broadcaster_id(current_user.id, broadcaster_id)
+    if following
+      Following.delete(following)
+    else
+      Following.create(follower_id: current_user.id, broadcaster_id: broadcaster_id)
+    end
+
+    @user = User.find(current_user.id)
+
+    render :show
+  end
+
   private
 
   def user_params

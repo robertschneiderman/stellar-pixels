@@ -4,6 +4,12 @@ export const requestSearchItems = (query, page) => ({
   page: page
 });
 
+export const makeNewSearch = (query, page) => ({
+  type: "MAKE_NEW_SEARCH",
+  query,
+  page: page
+});
+
 export const filterSearchItems = (query, page) => ({
   type: "FILTER_SEARCH_ITEMS",
   query,
@@ -15,6 +21,13 @@ export const receiveSearchItems = (items, query, page) => ({
   items,
   query,
   page
+});
+
+export const receiveNewSearch = (items, query, page) => ({
+  type: "RECEIVE_NEW_SEARCH",
+  items,
+  query,
+  page: page
 });
 
 export const requestImageDetail = image => ({
@@ -52,4 +65,9 @@ export const requestFeedItems = () => ({
 export const receiveFeedItems = items => ({
   type: "RECEIVE_FEED_ITEMS",
   items
+});
+
+export const follow = (broadcaster_id) => ({
+  type: "FOLLOW",
+  broadcaster_id
 });

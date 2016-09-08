@@ -54,12 +54,21 @@ export const fetchUser = (user_id, success, error) => {
     success,
     error
   });
-}
+};
 
 export const fetchFeed = (success, error) => {
   $.ajax({
     method: 'GET',
     url: `/api/photos/feed`,
+    success,
+    error
+  });
+};
+
+export const follow = (broadcaster_id, success, error) => {
+  $.ajax({
+    method: 'POST',
+    url: `/api/users/follow/${broadcaster_id}`,
     success,
     error
   });

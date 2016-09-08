@@ -34,11 +34,11 @@ class SearchResults extends React.Component {
   // }
 
   _handleWaypointEnter() {
-    debugger;
     this.props.requestSearchItems(this.props.query, this.props.page);    
   }
 
   render() {  
+    console.log("this.props.items:", this.props.items);
     this.items = this.props.items.map(item => {
       return (
         {

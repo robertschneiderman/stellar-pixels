@@ -11,11 +11,13 @@ class SearchBar extends React.Component {
     console.log("e.currentTarget.value:", e.currentTarget.value);
     // console.log("this.props.requestSearchItems:", this.props.requestSearchItems);
 
-    this.props.requestSearchItems(e.currentTarget.value, 1);
+    // this.props.requestSearchItems(e.currentTarget.value, 1);
+    this.props.makeNewSearch(e.currentTarget.value, 1);
   }
 
   render() {
     return (
+
       <div className="searchbar-container">
         <input className="searchbar" placeholder="Search Stellar Pixels for photos, people, or locations" onKeyUp={this.searchUpdate.bind(this)} type="text"/>
         <button className="searchbar-btn" >

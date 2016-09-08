@@ -8,12 +8,14 @@ class FollowBtn extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getFollowState();
+    // this.props.getFollowState();
   }
 
   render() {
+    let className = this.props.followed ? "btn-unfollow" : "btn-follow";
+    let btnText = this.props.followed ? "Following" : "Follow";
     return (
-
+      <button className={className} onClick={this.props.follow}><span>{btnText}</span></button>
     )
   }
 }

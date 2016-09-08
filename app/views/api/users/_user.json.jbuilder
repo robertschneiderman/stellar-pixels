@@ -7,3 +7,11 @@ json.set! :photos do
     end
   end
 end
+
+json.set! :broadcasters do
+  user.broadcasters.each do |broadcaster|
+    json.set! broadcaster.id do
+      json.extract! broadcaster, :email
+    end
+  end
+end

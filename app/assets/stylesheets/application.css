@@ -106,6 +106,59 @@
   border-color: #ff3333;
 }
 
+.btn-follow, .btn-unfollow {
+  border-radius: 3px;
+  position: absolute;
+  font-weight: 300;
+  bottom: -3rem;
+  right: 2rem;
+  height: 30px;
+  font-weight: bold;
+  line-height: 28px;
+  color: rgb(47, 171, 65);
+  outline: 0;
+  /*text-shadow: rgb(0, 136, 204) 0px 1px 0px;*/
+  border-image: initial;
+  /*transition: background-color 0.1s ease-in-out;*/
+  font-size: 0.9rem;
+  padding: 0px 14px;
+  filter: none;
+  -webkit-filter: none;  
+}
+
+.btn-follow {
+  border: 1px solid rgb(47, 171, 65);  
+}
+
+.btn-follow span {
+  font-weight: 300;
+}
+
+.btn-unfollow {
+  background-color: rgb(52, 191, 73);
+  color: #fff;
+}
+
+.btn-follow:hover {
+  background-color: rgba(52, 191, 73, .4);
+  filter: none;
+  -webkit-filter: none;    
+}
+
+.btn-unfollow:hover {
+  background-color: red;
+  filter: none;
+  -webkit-filter: none;    
+}
+
+.btn-unfollow:hover:before {
+  content: "Unfollow";
+}
+
+.btn-unfollow:hover span {
+  display: none;
+}
+
 .btn-square {
   width: 1.5rem;
   
@@ -346,6 +399,7 @@
 }
 
 .navbar {
+  background-color: #fff;
   color: #777;
   padding: 0 2rem;
   align-items: center;
@@ -362,7 +416,7 @@
   padding: 2rem 4rem;
   z-index: 8000;
   position: absolute;
-  width: 100%;;
+  width: 100%;
 }
 
 .navbar-home .navbar-nav > li {
@@ -421,26 +475,6 @@
   top: -2rem;
   font-size: 2rem;
   color: #555852;
-
-}
-
-.profile-follow {
-  background-size: cover;
-  border-radius: 3px;
-  position: absolute;
-  bottom: -2.3rem;
-  right: 2rem;
-  height: 30px;
-  font-weight: bold;
-  line-height: 28px;
-  color: rgb(255, 255, 255);
-  background-color: rgb(52, 191, 73);
-  text-shadow: rgb(0, 136, 204) 0px 1px 0px;
-  border-color: rgb(47, 171, 65);
-  border-image: initial;
-  transition: background-color 0.1s ease-in-out;
-  font-size: 0.9rem;
-  padding: 0px 14px;
 
 }
 
@@ -564,10 +598,11 @@
 
 
 .searchbar-container {
+  background-color: #fff;
   height: 5rem;
   margin-bottom: 1rem;
   border: 1px solid #e2e2e2;
-
+  z-index: 8000;
 }
 
 .searchbar {
@@ -620,6 +655,10 @@
 .search-results #Gallery {
   margin: 0 auto;
   /*width: 95%;*/
+}
+
+.sticky {
+  z-index: 8000;
 }
 
 .title-favorites {

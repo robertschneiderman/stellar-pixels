@@ -3,6 +3,7 @@ import NavbarContainer from './navbar/navbar_container';
 import SessionFormContainer from './session_form/session_form_container';
 import Modal from 'boron/OutlineModal';
 import UploadFormContainer from './upload_form_container';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 // import GreetingContainer from './greeting/greeting_container';
 
@@ -45,12 +46,10 @@ class App extends React.Component {
 
     return (
       <div>
- 
         <NavbarContainer 
           openSessionModal={this.showSessionModal.bind(this)}
           openUploadModal={this.showUploadModal.bind(this)}
-          location={this.props.location}
-        />    
+          location={this.props.location}/>
 
         <Modal
           ref="sessionModal"
@@ -66,7 +65,6 @@ class App extends React.Component {
         </Modal>  
 
         {this.props.children}
-
       </div>
       
     )     

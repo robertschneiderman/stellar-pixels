@@ -2,6 +2,7 @@ import React from 'react';
 import GalleryContainer from '../search/gallery_container';
 import LazyLoad from 'react-lazy-load';
 import Loading from '../search/loading';
+import FollowBtn from '../search/follow_btn';
 // import Container from './/_container';
 
 class ProfilePage extends React.Component {
@@ -23,7 +24,6 @@ class ProfilePage extends React.Component {
     if (heroImg) {
       console.log("heroImg:", heroImg);
       $(window).scroll(() => {
-        console.log("heroImg.scrollTop:", heroImg.scrollTop);
         heroImg.animate({'background-postion': '+=30px 0'}, 100);        
         // let styles = {
         //   backgroundImage : 'url(' + this.photos[1].url + ')',
@@ -72,11 +72,22 @@ class ProfilePage extends React.Component {
             aspectRatio: (item.width / item.height),
           }
         )
-      });          
+      });
+
+      console.log("this.props:", this.props);
+      console.log("userId:", userId);
+
+      let userId = this.props.user.id
+      let broadcasters = this.props.currentUser.broadcasters;
+
+      console.log("broadcasters:", broadcasters);
+      console.log("userId:", userId);
+
+      let followed = (broadcasters && (broadcasters[userId])) ? true : false;  
 
       code = <div className="profile-intro">
         <div className="profile-hero" id="hero-img" style={style}>
-          <button className="profile-follow">Follow</button>
+          <FollowBtn followed={followed} follow={this.props.follow.bind(this, this.props.params.id)} />
         </div>
         <div className="profile-info">
           <img className="profile-avatar" src={this.props.user.avatar} alt=""/>

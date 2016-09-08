@@ -9,14 +9,18 @@ import router from 'react-router';
 // });
 
 const SearchReducer = (state = {items: [], image: {}, page: 1}, action) => {
-
+  let newState;
   switch (action.type) {
 
     case "RECEIVE_SEARCH_ITEMS":
-
-      let newState = merge({}, state, {query: action.query, page: (state.page + 1)});
+      newState = merge({}, state, {query: action.query, page: (state.page + 1)});
       newState.items = newState.items.concat(action.items);
       return newState;
+
+    case "RECEIVE_NEW_SEARCH":
+      newState = merge({}, state, {query: action.query, page: state.page});
+      newState.items = action.items;
+      return newState;      
 
     case "RECEIVE_IMAGE_DETAIL":
       // debugger;

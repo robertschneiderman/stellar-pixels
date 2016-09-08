@@ -1,6 +1,7 @@
 import * as API from '../util/search_api_util';
 import * as LOADING_ACTIONS from '../actions/loading_actions';
 import * as ACTIONS from '../actions/search_actions';
+import { receiveCurrentUser } from '../actions/session_actions';
 import {router, hashHistory} from 'react-router';
 
 
@@ -14,6 +15,14 @@ const SearchMiddleware = store => next => action => {
       dispatch(LOADING_ACTIONS.stopLoading('search-items'));
     };
   };
+
+  const successNewSearch = (query, page) => {
+    // debugger
+    return (items) => {
+      dispatch(ACTIONS.receiveNewSearch(items, query, page));
+      dispatch(LOADING_ACTIONS.stopLoading('search-items'));
+    };
+  };  
 
   const successFind = image => {
     dispatch(LOADING_ACTIONS.stopLoading('image-detail'));
@@ -30,9 +39,13 @@ const SearchMiddleware = store => next => action => {
     dispatch(ACTIONS.receiveUser(user));
   };      
 
-   const successFeed = items => {
+  const successFeed = items => {
     dispatch(LOADING_ACTIONS.stopLoading('feed'));    
     dispatch(ACTIONS.receiveFeedItems(items));
+  };
+
+  const successFollow = user => {
+    dispatch(receiveCurrentUser(user));
   };      
 
   const error = xhr => {
@@ -48,6 +61,12 @@ const SearchMiddleware = store => next => action => {
       API.fetchSearchItems(action.query, store.getState().search.page, successSearch);
       return next(action);      
       break;
+
+    case "MAKE_NEW_SEARCH":
+      dispatch(LOADING_ACTIONS.startLoading('search-items'));
+      API.fetchSearchItems(action.query, action.page, successNewSearch);
+      return next(action);      
+      break;      
 
     case "FILTER_SEARCH_ITEMS":
       dispatch(LOADING_ACTIONS.startLoading('search-items'));
@@ -76,7 +95,12 @@ const SearchMiddleware = store => next => action => {
       dispatch(LOADING_ACTIONS.startLoading('feed'));      
       API.fetchFeed(successFeed);
       return next(action);      
-      break;      
+      break; 
+
+    case "FOLLOW":
+      API.follow(action.broadcaster_id, successFollow);
+      return next(action);      
+      break;        
 
     default:
       return next(action);
