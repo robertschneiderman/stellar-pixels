@@ -53,16 +53,18 @@ class SearchResults extends React.Component {
       )
     });
 
+      // <Loading loading={this.props.loading} >
 
     return (
-      <Loading loading={this.props.loading} >
         <div className="search-results">
           <GalleryContainer photos={this.items} disableLightbox={true} />
           <Waypoint
-            onEnter={this._handleWaypointEnter}
-          />          
+            onEnter={this._handleWaypointEnter}/>
+          <section className="mod model-6">
+            <div className="spinner">
+            </div>
+          </section>                    
         </div>
-      </Loading>
     )
           // <span id="trigger"></span>
   }

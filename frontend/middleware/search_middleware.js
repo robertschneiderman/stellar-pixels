@@ -9,8 +9,10 @@ const SearchMiddleware = store => next => action => {
 
   const successSearch = (query, page) => {
     // debugger
-    dispatch(LOADING_ACTIONS.stopLoading('search-items'));
-    return (items) => { dispatch(ACTIONS.receiveSearchItems(items, query, page)) };
+    return (items) => {
+      dispatch(ACTIONS.receiveSearchItems(items, query, page));
+      dispatch(LOADING_ACTIONS.stopLoading('search-items'));
+    };
   };
 
   const successFind = image => {
@@ -42,7 +44,7 @@ const SearchMiddleware = store => next => action => {
     case "REQUEST_SEARCH_ITEMS":
       dispatch(LOADING_ACTIONS.startLoading('search-items'));
       // API.fetchSearchItems(action.query, store.getState().search.page, successSearch);
-      
+
       API.fetchSearchItems(action.query, store.getState().search.page, successSearch);
       return next(action);      
       break;
