@@ -1,14 +1,18 @@
-@import url("normalize.css");
-@import url("defaults.css");
-@import url("helpers.css");
-@import url("spinner.css");
-@import url("justified_gallery");
-@import url("radio_buttons");
-@import url("hovers");
-@import url("file_picker");
-@import url("animations");
-@import url("fake_loader");
-@import url("load");
+/*
+
+*= require normalize
+*= require defaults
+*= require helpers
+*= require spinner
+*= require justified_gallery
+*= require radio_buttons
+*= require hovers
+*= require file_picker
+*= require animations
+*= require fake_loader
+*= require load
+
+*/
 
 .btn {
   color: #fff;
