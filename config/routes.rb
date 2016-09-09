@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get '/photos/search', to: 'photos#search'
     get '/photos/feed', to: 'photos#feed'    
     post '/users/follow/:id', to: 'users#follow'
-    post '/users/favorite/:id', to: 'users#favorite' 
+    post '/photos/favorite/:id', to: 'photos#favorite' 
     resources :photos, only: [:show, :create]
   end
 

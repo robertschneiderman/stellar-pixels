@@ -51,12 +51,23 @@ const SearchMiddleware = store => next => action => {
 
   const successFavorite = user => {
     dispatch(receiveCurrentUser(user));
-  };      
+  };   
+
+  const successFavoriteFeed = items => {
+    dispatch(ACTIONS.receiveSingleImageSearch(items));
+  };   
 
   const error = xhr => {
     dispatch(LOADING_ACTIONS.stopLoading());
     // dispatch(ACTIONS.receiveErrors(xhr.responseJSON));
-  }
+  };
+
+  // const loadPage = user => {
+  //   setTimeout( () => {
+  //     dispatch(ACTIONS.receiveUser(user));
+  //     dispatch(LOADING_ACTIONS.stopLoading('user'));    
+  //   }, 1000);
+  // };    
 
   switch (action.type) {
     case "REQUEST_SEARCH_ITEMS":
@@ -110,7 +121,20 @@ const SearchMiddleware = store => next => action => {
     case "FAVORITE":
       API.favorite(action.photo_id, successFavorite);
       return next(action);      
-      break;              
+      break;
+
+    case "FAVORITE_FEED":
+      API.favorite(action.photo_id, successFavoriteFeed);
+      return next(action);      
+      break;      
+
+    case "LOAD_PAGE":
+      dispatch(LOADING_ACTIONS.startLoading('load-page'));
+      setTimeout( () => {
+        dispatch(LOADING_ACTIONS.stopLoading('load-page'));    
+      }, 1000);        
+      return next(action);      
+      break;                     
 
     default:
       return next(action);

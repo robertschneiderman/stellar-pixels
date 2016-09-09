@@ -79,9 +79,23 @@ export const favorite = (photo_id) => {
   }
 };
 
+export const favoriteFeed = (photo_id) => {
+  return {
+    type: "FAVORITE_FEED",
+    photo_id
+  }
+};
+
 export const receiveSingleImage = (image) => {
   return {
     type: "RECEIVE_SINGLE_IMAGE",
+    image
+  }
+};
+
+export const receiveSingleImageSearch = (image) => {
+  return {
+    type: "RECEIVE_SINGLE_IMAGE_SEARCH",
     image
   }
 };

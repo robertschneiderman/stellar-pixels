@@ -77,7 +77,7 @@ export const follow = (broadcaster_id, success, error) => {
 export const favorite = (photo_id, success, error) => {
   $.ajax({
     method: 'POST',
-    url: `/api/users/favorite/${photo_id}`,
+    url: `/api/photos/favorite/${photo_id}`,
     success,
     error
   });

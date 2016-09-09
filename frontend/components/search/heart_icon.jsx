@@ -16,8 +16,6 @@ class HeartIcon extends React.Component {
 
     let className = this.props.favorited ? "icon-heart hearted" : "icon-heart";
 
-    console.log("this.props.favorited:", this.props.favorited);
-
       // <button className={className} onClick={this.favorite.bind(this)}>
       // </button>
       // <span className="title-favorites"></span>

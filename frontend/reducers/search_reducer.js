@@ -23,7 +23,9 @@ const SearchReducer = (state = {items: [], image: {}, page: 1}, action) => {
       return newState;      
 
     case "RECEIVE_SINGLE_IMAGE":
-      debugger;
+      return merge({}, state, {user: {photos: { [action.image.id]: action.image} }});
+
+    case "RECEIVE_SINGLE_IMAGE":
       return merge({}, state, {user: {photos: { [action.image.id]: action.image} }});
 
     case "RECEIVE_IMAGE_DETAIL":

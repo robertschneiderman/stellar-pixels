@@ -3,6 +3,7 @@ import SearchBarContainer from './search_bar_container';
 import SearchResultsContainer from './search_results_container';
 import SearchFiltersContainer from './search_filters_container';
 import SearchFilters from './search_filters';
+import Loading from './loading';
 import { StickyContainer, Sticky } from 'react-sticky';
 
 class SearchPage extends React.Component {
@@ -14,7 +15,7 @@ class SearchPage extends React.Component {
 
   render() {
     return(
-      <div>
+      <Loading loading={this.props.loading}>
         <StickyContainer>
           <Sticky>      
             <SearchBarContainer />
@@ -23,7 +24,7 @@ class SearchPage extends React.Component {
           <SearchResultsContainer />
           {this.props.children}
         </StickyContainer>
-      </div>
+      </Loading>
     )
   }
 }
