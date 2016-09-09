@@ -46,7 +46,7 @@ class App extends React.Component {
 
         // <div id="fakeLoader"></div>
     return (
-      <div>
+      <div className="app"> 
         <NavbarContainer 
           openSessionModal={this.showSessionModal.bind(this)}
           openUploadModal={this.showUploadModal.bind(this)}

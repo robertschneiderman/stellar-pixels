@@ -105,8 +105,53 @@ def fetch_photos(should_run = false)
 
   cats = JSON.parse(response.body)["photos"]
 
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=dogs&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
 
-  results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(people).concat(performing_arts).concat(sport).concat(still_life).concat(street).concat(transportation).concat(cats)
+  dogs = JSON.parse(response.body)["photos"]
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=people&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')   
+
+  people = JSON.parse(response.body)["photos"]  
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=sky&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')   
+
+  sky = JSON.parse(response.body)["photos"]  
+  
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=mountain&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')   
+
+  mountain = JSON.parse(response.body)["photos"]        
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=red&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
+
+  red = JSON.parse(response.body)["photos"]
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=orange&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
+
+  orange = JSON.parse(response.body)["photos"]  
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=yellow&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
+
+  yellow = JSON.parse(response.body)["photos"]    
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=green&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
+
+  green = JSON.parse(response.body)["photos"]
+
+  response = HTTParty.get(
+    'https://api.500px.com/v1/photos/search?term=blue&sort=created_at&image_size=31&include_store=store_download&include_states=voted&rpp=100&tags=1&consumer_key=5b7xXF28c7zkXZpkLzUAxUn0lp5tdVoGlEEK4gJk')  
+
+  blue = JSON.parse(response.body)["photos"]
+
+
+  results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(people).concat(performing_arts).concat(sport).concat(still_life).concat(street).concat(transportation).concat(cats).concat(dogs).concat(people).concat(sky).concat(mountain).concat(red).concat(orange).concat(yellow).concat(green).concat(blue)
 
 
   results = results.each_with_index do |obj, i|

@@ -12,6 +12,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
   avatar = JSON.parse(response.body)["image_urls"]["bigger"]
 
   User.create!({ email: Faker::Name.name, password: 'password', avatar: avatar})
+  
 end
 
 

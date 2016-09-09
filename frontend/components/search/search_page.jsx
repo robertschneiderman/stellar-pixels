@@ -23,9 +23,9 @@ class SearchPage extends React.Component {
             </Sticky>
             <SearchFiltersContainer />
             <SearchResultsContainer />
-            {this.props.children}
           </div>
         </StickyContainer>
+            {this.props.children}
       </Loading>
     )
   }

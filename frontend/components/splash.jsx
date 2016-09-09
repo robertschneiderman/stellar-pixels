@@ -15,15 +15,22 @@ class Splash extends React.Component {
   }
 
   demoLogin() {
-    this.showSessionModal('login');
+    // this.showSessionModal('login');
 
-    let i = 0
-    let sentence = ["hellllooo"];
-    let interval = setInterval(() => {
-      $('.react-modal-input').value(sentence[i])
-      i += 1
-    }, 200)
-    clearInterval(interval);
+    let user = {
+      email: "Chuck Norris",
+      password: "password"
+    }
+
+    this.props.login({user});
+
+    // let i = 0
+    // let sentence = ["hellllooo"];
+    // let interval = setInterval(() => {
+    //   $('.react-modal-input').value(sentence[i])
+    //   i += 1
+    // }, 200)
+    // clearInterval(interval);
   }
 
   componentDidMount() {

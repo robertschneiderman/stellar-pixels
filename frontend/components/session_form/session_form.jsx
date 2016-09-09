@@ -70,7 +70,7 @@ class SessionForm extends React.Component {
         <h2 className="react-modal-title">The only place on the Internet for amazing photos</h2>
 
         <input
-          placeholder="Email"        
+          placeholder="Username"        
           className="react-modal-input"
           type="text"
           onChange={this.update("email")}

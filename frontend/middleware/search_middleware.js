@@ -5,6 +5,7 @@ import { receiveCurrentUser } from '../actions/session_actions';
 import {router, hashHistory} from 'react-router';
 
 
+
 const SearchMiddleware = store => next => action => {
   let dispatch = store.dispatch;
 
@@ -53,8 +54,8 @@ const SearchMiddleware = store => next => action => {
     dispatch(receiveCurrentUser(user));
   };   
 
-  const successFavoriteFeed = items => {
-    dispatch(ACTIONS.receiveSingleImageSearch(items));
+  const successFavoriteFeed = user_id => photo => {
+    dispatch(ACTIONS.addFavoriteToPicture(photo.id, user_id));
   };   
 
   const error = xhr => {
@@ -124,7 +125,8 @@ const SearchMiddleware = store => next => action => {
       break;
 
     case "FAVORITE_FEED":
-      API.favorite(action.photo_id, successFavoriteFeed);
+      let user_id = store.getState().session.currentUser.id;
+      API.favorite(action.photo_id, successFavoriteFeed(user_id));
       return next(action);      
       break;      
 

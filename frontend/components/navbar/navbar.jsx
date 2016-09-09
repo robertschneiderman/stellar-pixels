@@ -57,8 +57,8 @@ class Navbar extends React.Component {
       logoSrc = '/assets/svg/logo-white.svg'
     }
 
-    if (this.props.location.pathname == '/search') {
-      navbarClass = 'navbar fbc not-fixed';      
+    if (this.props.location.pathname == '/feed') {
+      navbarClass = 'navbar fbc fixed';      
     }
 
     let searchIconClass = "navbar-search-container";

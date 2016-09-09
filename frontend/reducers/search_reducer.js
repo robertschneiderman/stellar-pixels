@@ -25,18 +25,40 @@ const SearchReducer = (state = {items: [], image: {}, page: 1}, action) => {
     case "RECEIVE_SINGLE_IMAGE":
       return merge({}, state, {user: {photos: { [action.image.id]: action.image} }});
 
-    case "RECEIVE_SINGLE_IMAGE":
-      return merge({}, state, {user: {photos: { [action.image.id]: action.image} }});
+    case "RECEIVE_SINGLE_IMAGE_SEARCH":
+      let newItems = state.items.map(item => {
+        if (item.id === action.image.id) {
+          return action.image;
+        } else {
+          return item;
+        }
+      });
+      
+      newState = merge({}, {items: newItems });
+      return newState
 
     case "RECEIVE_IMAGE_DETAIL":
       // debugger;
       return merge({}, state, {image: action.image});
 
     case "RECEIVE_USER":
-      return merge({}, state, {user: action.user});      
+
+      newState = merge({}, state);
+      newState.user = action.user;
+      return newState;
 
     case "RECEIVE_FEED_ITEMS":
-      return merge({}, state, {items: action.items});      
+      return merge({}, state, {items: action.items});    
+
+    case "ADD_FAVORITE_TO_PICTURE":
+      newState = merge({}, state);
+
+      newState.items.forEach((image, i) => {
+        if (image.id === action.photo_id) {
+          newState.items[i].favorites.push({user_id: action.user_id});
+        }
+      })
+      return merge({}, state, {items: action.items});          
 
     default:
       return state;

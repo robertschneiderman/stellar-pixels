@@ -79,6 +79,7 @@ class ProfilePage extends React.Component {
       });
 
       if (count > 0) {
+        console.log("this.photos:", this.photos);
         gallery = <GalleryContainer photos={this.photos} disableLightbox={true} />        
       }
 

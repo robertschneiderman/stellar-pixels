@@ -103,3 +103,10 @@ export const receiveSingleImageSearch = (image) => {
 export const loadPage = () => ({
   type: "LOAD_PAGE",
 });
+
+
+export const addFavoriteToPicture = (photo_id, user_id) => ({
+  type: "ADD_FAVORITE_TO_PICTURE",
+  photo_id,
+  user_id
+});

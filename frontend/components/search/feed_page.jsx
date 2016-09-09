@@ -19,22 +19,28 @@ class FeedPage extends React.Component {
   render() {
 
     this.items = this.props.items.map((item, i) => {
-      console.log("item:", item);
       let userProfile = `/users/${item.user_id}`;
 
       let favoriteCount = 0;
+      let favorited = false;
       for (let k in item.favorites) {
           if (item.favorites.hasOwnProperty(k)) {
              ++favoriteCount;
           }
+
+          if (item.favorites[k].user_id === this.props.currentUser.id) {
+            favorited = true;
+          }
       }       
 
-      let favorites = this.props.currentUser.favorites;
+      // let favorites = this.props.currentUser.favorites;
       let imgId = item.id;
 
-      let favorited = (favorites && favorites[imgId]);
+      // let favorited = (favorites && favorites[imgId]) ? true : false;
 
-      let btnClass = favorited ? "btn-favorites hearted" : "btn-favorites"
+      let btnClass = favorited ? "btn-favorites hearted" : "btn-favorites";
+      
+        debugger;
 
       return (
         <li className="feed-img-container" key={i}>
