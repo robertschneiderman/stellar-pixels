@@ -63,7 +63,7 @@ class SessionForm extends React.Component {
       <form onSubmit={this.handleSubmit.bind(this)} className="form-wrapper">
         { this.renderErrors() }
 
-        <img src="/assets/svg/logo.svg" alt=""/>
+        <img src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451134/logo_scj8cw.svg" alt=""/>
 
 
 
