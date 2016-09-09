@@ -8,6 +8,7 @@
 @import url("file_picker");
 @import url("animations");
 @import url("fake_loader");
+@import url("load");
 
 .btn {
   color: #fff;
@@ -267,7 +268,7 @@
 }*/
 .feed-container {
   text-align: center;
-
+  padding-top: 8rem;
 }
 
 .feed {
@@ -276,6 +277,10 @@
 
 .feed-img-container {
   list-style: none;
+}
+
+.feed-img-container img {
+    max-width: 800px;
 }
 
 .feed-avatar-container {
@@ -437,10 +442,20 @@
   width: 100%;
   z-index: 8000;
   font-size: 1rem;
+  position: fixed;
 }
 
 .navbar .logo {
+  cursor: pointer;
   width: 17rem;
+}
+
+.navbar-search-container {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+  line-height: 0;  
 }
 
 .navbar-home {
@@ -553,7 +568,7 @@
   font-size: 1.2rem;
   margin-top: 0;
   line-height: 1.5;
-  font-family: serf;
+  font-family: serif;
   font-style: italic;
   margin-bottom: 1rem;  
 }
@@ -676,7 +691,7 @@
   background-color: #64c9fb;
   color: #fff;
   vertical-align: middle;
-  padding: 0 2.5rem;
+  padding: 0 0.5rem;
   width: 7%;
 }
 

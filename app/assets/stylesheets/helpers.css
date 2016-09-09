@@ -26,8 +26,16 @@
   width: 100%;  
 }
 
+.not-fixed {
+  position: relative !important;
+}
+
 .vc {
   align-items: center;
+}
+
+.none {
+  display: none;
 }
 
 .ibm {

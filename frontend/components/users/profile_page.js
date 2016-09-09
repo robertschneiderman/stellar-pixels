@@ -136,7 +136,7 @@ class ProfilePage extends React.Component {
     }
     return (
         <Loading loading={this.props.loading}>
-          <div className="profile">        
+          <div className="profile load-fade-in">        
               {code}
               {gallery}
           </div>

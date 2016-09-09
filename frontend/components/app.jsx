@@ -44,9 +44,9 @@ class App extends React.Component {
 
     const active = this.state.modalIsOpen ? 'active' : '';
 
+        // <div id="fakeLoader"></div>
     return (
       <div>
-        <div id="fakeLoader"></div>
         <NavbarContainer 
           openSessionModal={this.showSessionModal.bind(this)}
           openUploadModal={this.showUploadModal.bind(this)}

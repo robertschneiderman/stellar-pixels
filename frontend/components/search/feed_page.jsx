@@ -58,7 +58,7 @@ class FeedPage extends React.Component {
     return (
       <Loading loading={this.props.loading}>
 
-        <div className="feed-container">
+        <div className="feed-container load-fade-in">
           <ul className="feed">
           
             {this.items}

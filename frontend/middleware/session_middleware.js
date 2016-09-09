@@ -7,7 +7,7 @@ const SessionMiddleware = ({dispatch}) => next => action => {
 
   const success = user => {
     dispatch(ACTIONS.receiveCurrentUser(user));
-    hashHistory.push('/search');
+    hashHistory.push('/feed');
   };
 
   const error = xhr => dispatch(ACTIONS.receiveErrors(xhr.responseJSON));

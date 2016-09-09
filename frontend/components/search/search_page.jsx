@@ -17,12 +17,14 @@ class SearchPage extends React.Component {
     return(
       <Loading loading={this.props.loading}>
         <StickyContainer>
-          <Sticky>      
-            <SearchBarContainer />
-          </Sticky>
-          <SearchFiltersContainer />
-          <SearchResultsContainer />
-          {this.props.children}
+          <div className="load-fade-in">
+            <Sticky>      
+              <SearchBarContainer />
+            </Sticky>
+            <SearchFiltersContainer />
+            <SearchResultsContainer />
+            {this.props.children}
+          </div>
         </StickyContainer>
       </Loading>
     )

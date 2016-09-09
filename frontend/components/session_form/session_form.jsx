@@ -15,6 +15,17 @@ class SessionForm extends React.Component {
     // this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+      // debugger;
+
+    // if (this.props.demoLogin) {
+    //   $(".react-modal-input").typed({
+    //     strings: ["First sentence.", "Second sentence."],
+    //     typeSpeed: 0
+    //   });      
+    // }    
+  }
+
   componentDidUpdate() {
     if (this.props.loggedIn) {
       this.props.closeModal();

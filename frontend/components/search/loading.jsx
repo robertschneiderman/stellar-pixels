@@ -2,11 +2,9 @@ const React = require('react');
 
 const Loading = ({loading, children}) => {
 
-  debugger;
-
   if (loading) {
     return (
-    <section className="mod model-6">
+    <section className="mod model-6 load-fade-out">
       <div className="spinner">
       </div>
     </section>
