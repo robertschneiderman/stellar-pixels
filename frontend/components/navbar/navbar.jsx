@@ -31,7 +31,7 @@ class Navbar extends React.Component {
         <ul className="navbar-nav">
           <UserTag id={this.props.id} avatar={this.props.avatar} email={this.props.email} />
           <li onClick={this.props.openUploadModal} className="btn-upload-container ibm">
-            <img className="btn-upload-img ibm" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451134/logo_scj8cw.svg" alt=""/>
+            <img className="btn-upload-img ibm" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451134/upload_mtgu67.svg" alt=""/>
             <span className="btn-upload-text ibm">Upload</span>
           </li>
           <li className="ibm" onClick={this.props.logout}>Sign Out</li>
