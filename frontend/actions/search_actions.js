@@ -78,3 +78,14 @@ export const favorite = (photo_id) => {
     photo_id
   }
 };
+
+export const receiveSingleImage = (image) => {
+  return {
+    type: "RECEIVE_SINGLE_IMAGE",
+    image
+  }
+};
+
+export const loadPage = () => ({
+  type: "LOAD_PAGE",
+});

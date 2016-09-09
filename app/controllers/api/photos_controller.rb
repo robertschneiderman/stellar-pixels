@@ -15,8 +15,14 @@ class Api::PhotosController < ApplicationController
   def feed
     broadcaster_ids = current_user.broadcasters.map(&:id)
 
+    # if broadcaster_ids.is_a?(Fixnum)
+    #   broadcaster_ids = [broadcaster_ids]
+    # end
+
+    # debugger
+
     unless broadcaster_ids.empty?
-      @photos = Photo.where('broadcaster_id in ?', broadcaster_ids)
+      @photos = Photo.where('user_id IN (?)', broadcaster_ids)
     else
       @photos = Photo.all.limit(20)
     end

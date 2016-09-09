@@ -5,7 +5,7 @@ import Modal from 'boron/OutlineModal';
 import ImageDetail from './image_detail';
 import { hashHistory } from 'react-router';
 import Infinite from 'react-infinite';
-import FavoriteBtn from './favorite_btn';
+import HeartIcon from './heart_icon';
 // import LazyLoad from 'react-lazy-load';
 
 class Gallery extends React.Component{
@@ -88,6 +88,8 @@ class Gallery extends React.Component{
 
     render(){
 
+        console.log("this.props.imageDetail:", this.props.imageDetail);
+
         if (this.props.imageDetail.id) {
             this.showModal();
         }
@@ -131,12 +133,9 @@ class Gallery extends React.Component{
 
 
         let favorited = (favorites && favorites[imgId]) ? true : false; 
-
 		if (this.props.disableLightbox){
             let image = this.props.photos[k];
-            console.log("this.props.photos[k]:", this.props.photos[k]);
 		    photoPreviewNodes.push(
-                // <ImageResult onClick={() => hashHistory.push(`/search/images/${image.id}`)} key={k} style={style}>
 
                 <div className="img-container" key={k} onClick={() => hashHistory.push(`/search/images/${image.id}`)} key={k} style={style}>
                   <img src={src} style={{display:'block', border:0}} height={commonHeight} width={commonHeight * image.aspectRatio} alt="" />
@@ -145,7 +144,7 @@ class Gallery extends React.Component{
                       <img className="avatar-img ibm" src={image.avatar} alt=""/>
                       <span className="avatar-title white ibm">{image.email}</span>
                     </div>
-                    <FavoriteBtn favorited={favorited} favorite={this.props.favorite.bind(this, this.props.photos[k].id)} />
+                    <HeartIcon favorited={favorited} favorite={this.props.favorite.bind(this, this.props.photos[k].id)} />
                   </div>
                 </div>
 		    );

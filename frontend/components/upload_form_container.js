@@ -3,7 +3,7 @@ import UploadForm from './upload_form';
 import { uploadPhoto } from '../actions/search_actions';
 
 const mapStateToProps = state => ({
-  
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => {

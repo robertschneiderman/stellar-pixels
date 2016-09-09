@@ -28,7 +28,6 @@ class ProfilePage extends React.Component {
         // let styles = {
         //   backgroundImage : 'url(' + this.photos[1].url + ')',
         // };
-        console.log("here");
         // $('#hero-img').css(styles);
       });
     }     
@@ -41,7 +40,8 @@ class ProfilePage extends React.Component {
 
     let style = {};
     let code;
-    this.photos = [];    
+    let gallery;
+
     if (this.props.user) {
           // debugger
 
@@ -55,12 +55,16 @@ class ProfilePage extends React.Component {
 
       const count = this.photos.length;
 
+      if (count === 0) {
+        this.photos.push({ url: "http://res.cloudinary.com/stellar-pixels/image/upload/v1473360272/placeholder-bg_rn2wco.jpg"});
+      }
+
       const style = {
-        backgroundImage: 'url(' + this.photos[1].url + ')',
+        backgroundImage: 'url(' + this.photos[0].url + ')',
         backgroundPosition: 0
       }
 
-      this.photos = this.photos.slice(2).map(item => {
+      this.photos = this.photos.slice(1).map(item => {
         return (
           {
             id: item.id,
@@ -74,6 +78,10 @@ class ProfilePage extends React.Component {
         )
       });
 
+      if (count > 0) {
+        gallery = <GalleryContainer photos={this.photos} disableLightbox={true} />        
+      }
+
       console.log("this.props:", this.props);
       console.log("userId:", userId);
 
@@ -83,29 +91,56 @@ class ProfilePage extends React.Component {
       console.log("broadcasters:", broadcasters);
       console.log("userId:", userId);
 
-      let followed = (broadcasters && (broadcasters[userId])) ? true : false;  
+      let followed = (broadcasters && (broadcasters[userId])) ? true : false;
+
+      let followBtn = (userId !== this.props.currentUser.id) ? <FollowBtn followed={followed} follow={this.props.follow.bind(this, this.props.params.id)} /> : ''
+
+      let favoriteCount = 0;
+      for (let k in this.props.currentUser.favorites) {
+          if (this.props.currentUser.favorites.hasOwnProperty(k)) {
+             ++favoriteCount;
+          }
+      }  
+
+      let broadcasterCount = 0;
+      for (let k in this.props.currentUser.broadcasters) {
+          if (this.props.currentUser.broadcasters.hasOwnProperty(k)) {
+             ++broadcasterCount;
+          }
+      }    
+
+      let followerCount = 0;
+      for (let k in this.props.currentUser.followers) {
+          if (this.props.currentUser.followers.hasOwnProperty(k)) {
+             ++followerCount;
+          }
+      }          
+
+      console.log("this.props.user:", this.props.user);    
 
       code = <div className="profile-intro">
         <div className="profile-hero" id="hero-img" style={style}>
-          <FollowBtn followed={followed} follow={this.props.follow.bind(this, this.props.params.id)} />
+          {followBtn}
         </div>
         <div className="profile-info">
           <img className="profile-avatar" src={this.props.user.avatar} alt=""/>
           <p className="profile-title">{this.props.user.email}</p>
           <ul className="profile-stats fbc">
-            <li className="profile-stat">{count} Photo Views</li>
-            <li className="profile-stat"></li>
-            <li className="profile-stat"></li>
-            <li className="profile-stat"></li>
+            <li className="profile-stat">{count} Photos</li>
+            <li className="profile-stat">{favoriteCount} Favorites</li>
+            <li className="profile-stat">{broadcasterCount} Follows</li>
+            <li className="profile-stat">{followerCount} Followers</li>
           </ul>
         </div>
       </div>
     }
     return (
-      <div className="profile">        
-          {code}
-          <GalleryContainer photos={this.photos} disableLightbox={true} />
-      </div>
+        <Loading loading={this.props.loading}>
+          <div className="profile">        
+              {code}
+              {gallery}
+          </div>
+        </Loading>
     )
   }
 }

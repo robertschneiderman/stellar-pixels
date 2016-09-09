@@ -63,7 +63,7 @@ class SearchResults extends React.Component {
           <section className="mod model-6">
             <div className="spinner">
             </div>
-          </section>                    
+          </section>     
         </div>
     )
           // <span id="trigger"></span>

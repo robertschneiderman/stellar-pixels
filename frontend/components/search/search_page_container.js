@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    loadPage: () => dispatch(loadPage()),
     requestSearchItems: items => dispatch(requestSearchItems(items)),
   }
 };

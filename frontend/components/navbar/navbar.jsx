@@ -15,6 +15,11 @@ class Navbar extends React.Component {
 
   };
 
+  logoClick(e) {
+    e.preventDefault();
+    hashHistory.push('/feed');
+  }
+
   listItems() {
     if (this.props.loggedIn) {
       return (
@@ -49,7 +54,7 @@ class Navbar extends React.Component {
      
     return (
       <nav className={navbarClass}>
-        <img className="logo ibm" src={logoSrc} alt=""/>
+        <img className="logo ibm" onClick={this.logoClick.bind(this)} src={logoSrc} alt=""/>
         {this.listItems()}
       </nav>
     )

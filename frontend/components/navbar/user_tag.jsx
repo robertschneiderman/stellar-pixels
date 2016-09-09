@@ -9,7 +9,11 @@ class UserTag extends React.Component {
   }
 
   goToUserPage() {
-    hashHistory.push(`/users/${this.props.id}`)
+    hashHistory.push(`/users/${this.props.id}`);
+  }
+
+  componentWillUnmount() {
+    $("#fakeLoader").fakeLoader();
   }
 
 

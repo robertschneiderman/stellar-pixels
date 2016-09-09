@@ -2,6 +2,7 @@ const React = require('react');
 
 const Loading = ({loading, children}) => {
 
+  debugger;
 
   if (loading) {
     return (

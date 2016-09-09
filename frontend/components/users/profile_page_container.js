@@ -6,6 +6,7 @@ const mapStateToProps = state => {
   // debugger;
   return {
     currentUser: state.session.currentUser,
+    loading: state.loading['user'],
     user: state.search.user
   }
 };

@@ -49,18 +49,30 @@ class MyDropzone extends React.Component {
   }
 
   render() {
+    // const style = {
+      
+    // };
+
+    // const activeStyle = {
+
+    // };
+
+
     const upload = () => (
         <Dropzone
           onDrop={this.onImageDrop}
           multiple={false}
-          accept="image/*">
+          accept="image/*"
+          className="upload-dropzone"
+          activeClassName="upload-dropzone-active"
+          >
           {this.state.uploadedFile === null ?
-            <div className="pre-uploading">
-              <div className="upload-text">Drop an image or click to select a file.</div>
-              <img className="camera" src="http://res.cloudinary.com/dhorsi7vf/image/upload/v1473089805/camera_r5zsgv.png" />
+            <div className="upload-pre">
+              <p className="upload-pre-text">Drop an image or click to select a file.</p>
+              <img className="upload-pre-img" src="/assets/svg/upload-photo.svg" />
             </div>
               :
-            <div className="loader">Loading...</div>
+            <div className="loader"></div>
           }
         </Dropzone>
     );
@@ -72,7 +84,7 @@ class MyDropzone extends React.Component {
     );
 
     return (
-      <div className="left-image-container">
+      <div className="upload-left-container">
         {this.state.uploadedFileCloudinaryUrl === '' ?
             upload() : uploadedImage()
         }

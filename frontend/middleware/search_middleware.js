@@ -30,13 +30,14 @@ const SearchMiddleware = store => next => action => {
   };
 
   const successCreate = image => {
-    dispatch(ACTIONS.receiveImageDetail(image));
-    hashHistory.push(`/photos/${image.id}`);
+    dispatch(ACTIONS.receiveSingleImage(image));
   };   
 
   const successUserId = user => {
-    dispatch(LOADING_ACTIONS.stopLoading('user'));    
-    dispatch(ACTIONS.receiveUser(user));
+    setTimeout( () => {
+      dispatch(ACTIONS.receiveUser(user));
+      dispatch(LOADING_ACTIONS.stopLoading('user'));    
+    }, 1000);
   };      
 
   const successFeed = items => {

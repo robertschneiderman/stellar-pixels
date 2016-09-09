@@ -46,6 +46,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <div id="fakeLoader"></div>
         <NavbarContainer 
           openSessionModal={this.showSessionModal.bind(this)}
           openUploadModal={this.showUploadModal.bind(this)}
@@ -59,6 +60,7 @@ class App extends React.Component {
         </Modal> 
 
         <Modal
+          className="upload-modal"
           ref="uploadModal"
         >
           <UploadFormContainer closeModal={this.hideUploadModal.bind(this)} />
