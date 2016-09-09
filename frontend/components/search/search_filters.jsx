@@ -22,9 +22,9 @@ class SearchFilters extends React.Component {
     return (
       <div className="search-filters-container">
         <div className="btn-ar-container">
-          <button id="wide" className="btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-wide" src="/assets/svg/wide-ar.svg" alt=""/></button>
-          <button id="narrow" className="narrow btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-narrow" src="/assets/svg/narrow-ar.svg" alt=""/></button>
-          <button id="square" className="square btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-square" src="/assets/svg/square-ar.svg" alt=""/></button>
+          <button id="wide" className="btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-wide" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451377/wide-ar_kbbnw7.svg" alt=""/></button>
+          <button id="narrow" className="narrow btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-narrow" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451377/narrow-ar_t3pt11.svg" alt=""/></button>
+          <button id="square" className="square btn-ar ibm" onClick={this.filter.bind(this)}><img className="btn-square" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451377/sqaure-ar_f2skur.svg" alt=""/></button>
         </div>
 
       </div>

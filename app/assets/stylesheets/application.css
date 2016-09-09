@@ -233,7 +233,7 @@
 }
 
 .container-splash {
-  background: url("bg-splash.jpg");
+  background: url("http://res.cloudinary.com/stellar-pixels/image/upload/v1473451562/bg-splash_oczmp8.jpg");
   background-size: cover;
   padding: 15rem 0;
   width: 100%;

@@ -69,7 +69,7 @@ class MyDropzone extends React.Component {
           {this.state.uploadedFile === null ?
             <div className="upload-pre">
               <p className="upload-pre-text">Drop an image or click to select a file.</p>
-              <img className="upload-pre-img" src="/assets/svg/upload-photo.svg" />
+              <img className="upload-pre-img" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1473451133/upload-photo_dyv79w.svg" />
             </div>
               :
             <div className="loader"></div>

@@ -50,11 +50,11 @@ class Navbar extends React.Component {
 
   render() {
     let navbarClass = "navbar fbc";
-    let logoSrc = "/assets/svg/logo.svg";
+    let logoSrc = "http://res.cloudinary.com/stellar-pixels/image/upload/v1473451134/logo_scj8cw.svg";
 
     if (this.props.location.pathname == '/') {
       navbarClass = 'navbar-home fbc';
-      logoSrc = '/assets/svg/logo-white.svg'
+      logoSrc = 'http://res.cloudinary.com/stellar-pixels/image/upload/v1473451133/logo-white_htoyzm.svg'
     }
 
     if (this.props.location.pathname == '/feed') {
