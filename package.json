@@ -23,6 +23,7 @@
     "babel-loader": "^6.2.5",
     "babel-plugin-syntax-jsx": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
     "boron": "^0.2.3",
     "fine-uploader": "^5.11.7",
     "image-layout": "^0.4.0",
