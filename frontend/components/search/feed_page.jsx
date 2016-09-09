@@ -9,7 +9,7 @@ class FeedPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestFeedItems('', this.props.page);        
+    // this.props.requestFeedItems('', this.props.page);        
   }
 
   render() {
