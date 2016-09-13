@@ -6,7 +6,7 @@ const mapStateToProps = state => {
   // debugger;
   return {
     currentUser: state.session.currentUser,
-    imageDetail: state.search.image
+    imageDetail: state.photos.image
   }
 };
 

@@ -12,47 +12,44 @@ class FeedPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.loadPage();    
-    this.props.requestFeedItems('', this.props.page);        
+    this.props.loadPage();  
+    this.props.requestFeedPhotos();        
   }
 
   render() {
-
-    this.items = this.props.items.map((item, i) => {
-      let userProfile = `/users/${item.user_id}`;
+    this.photos = this.props.photos.map((photo, i) => {
+      let userProfile = `/users/${photo.user_id}`;
 
       let favoriteCount = 0;
       let favorited = false;
-      for (let k in item.favorites) {
-          if (item.favorites.hasOwnProperty(k)) {
+      for (let k in photo.favorites) {
+          if (photo.favorites.hasOwnProperty(k)) {
              ++favoriteCount;
           }
 
-          if (item.favorites[k].user_id === this.props.currentUser.id) {
+          if (photo.favorites[k].user_id === this.props.currentUser.id) {
             favorited = true;
           }
       }       
 
       // let favorites = this.props.currentUser.favorites;
-      let imgId = item.id;
+      let photoId = photo.id;
 
-      // let favorited = (favorites && favorites[imgId]) ? true : false;
+      // let favorited = (favorites && favorites[photoId]) ? true : false;
 
       let btnClass = favorited ? "btn-favorites hearted" : "btn-favorites";
       
-        debugger;
-
       return (
         <li className="feed-img-container" key={i}>
           <div className="ibm mb3">
-            <img src={item.url} />
+            <img src={photo.url} />
             <div className="feed-card">
               <a className="feed-avatar-container" onClick={() => {hashHistory.push(userProfile)} }>
-                <img className="feed-avatar" src={item.avatar} alt=""/>
-                <span className="feed-author-title">{item.email}</span>
+                <img className="feed-avatar" src={photo.avatar} alt=""/>
+                <span className="feed-author-title">{photo.email}</span>
               </a>
-              <button className={btnClass} onClick={this.props.favoriteFeed.bind(this, imgId)}>
-                <HeartIcon favorited={favorited} favorite={this.props.favoriteFeed.bind(this, imgId)} />
+              <button className={btnClass} onClick={this.props.favorite.bind(this, photoId)}>
+                <HeartIcon favorited={favorited} favorite={this.props.favorite.bind(this, photoId)} />
                 <span className="title-favorites">{favoriteCount}</span>
               </button>
             </div>
@@ -67,7 +64,7 @@ class FeedPage extends React.Component {
         <div className="feed-container load-fade-in">
           <ul className="feed">
           
-            {this.items}
+            {this.photos}
           
           </ul>
         </div>

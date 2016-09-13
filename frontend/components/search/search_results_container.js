@@ -4,9 +4,9 @@ import { requestSearchItems } from '../../actions/search_actions';
 
 const mapStateToProps = state => {
   return {
-    items: state.search.items,
-    page: state.search.page,
-    query: state.search.query,
+    items: state.photos.items,
+    page: state.photos.page,
+    query: state.photos.query,
     loading: state.loading['search-items']
   }
 };

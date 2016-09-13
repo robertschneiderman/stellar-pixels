@@ -285,6 +285,7 @@
 }
 
 .feed-img-container {
+  cursor: pointer;
   list-style: none;
 }
 

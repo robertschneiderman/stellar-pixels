@@ -1,18 +1,19 @@
 import {connect} from 'react-redux';
 import FeedPage from './feed_page';
-import { loadPage, requestFeedItems, favoriteFeed } from '../../actions/search_actions';
+import { loadPage } from '../../actions/search_actions';
+import * as ACTIONS from '../../actions/photos_actions';
 
 const mapStateToProps = state => ({
   loading: state.loading['load-page'],  
   currentUser: state.session.currentUser,
-  items: state.search.items
+  photos: state.photos.photos
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
     loadPage: () => dispatch(loadPage()),    
-    favoriteFeed: photo_id => dispatch(favoriteFeed(photo_id)),    
-    requestFeedItems: () => dispatch(requestFeedItems())
+    favorite: photo_id => dispatch(ACTIONS.favorite(photo_id)),    
+    requestFeedPhotos: () => dispatch(ACTIONS.requestFeedPhotos())
   }
 };
 

@@ -5,8 +5,8 @@ import * as ACTIONS from '../../actions/search_actions';
 const mapStateToProps = state => {
   console.log("state:", state);
   return {
-    page: state.search.page,
-    query: state.search.query
+    page: state.photos.page,
+    query: state.photos.query
   }
 };
 

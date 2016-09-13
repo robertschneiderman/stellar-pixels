@@ -15,12 +15,6 @@ class Api::PhotosController < ApplicationController
   def feed
     broadcaster_ids = current_user.broadcasters.map(&:id)
 
-    # if broadcaster_ids.is_a?(Fixnum)
-    #   broadcaster_ids = [broadcaster_ids]
-    # end
-
-    # debugger
-
     unless broadcaster_ids.empty?
       @photos = Photo.where('user_id IN (?)', broadcaster_ids)
     else
@@ -64,8 +58,6 @@ class Api::PhotosController < ApplicationController
     photo_id = params[:id]
 
     favorite = Favorite.find_by_user_id_and_photo_id(current_user.id, photo_id)
-
-    # debugger
 
     if favorite
       Favorite.delete(favorite.id)

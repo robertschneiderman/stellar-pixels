@@ -1,20 +1,19 @@
 import {connect} from 'react-redux';
 import ProfilePage from './profile_page';
-import { requestUserPhotos, follow } from '../../actions/search_actions';
+import * as ACTIONS from '../../actions/users_actions';
 
 const mapStateToProps = state => {
-  // debugger;
   return {
     currentUser: state.session.currentUser,
     loading: state.loading['user'],
-    user: state.search.user
+    user: state.user
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestUserPhotos: (user_id) => dispatch(requestUserPhotos(user_id)),
-    follow: (broadcaster_id) => dispatch(follow(broadcaster_id))
+    requestUser: (user_id) => dispatch(ACTIONS.requestUser(user_id)),
+    follow: (broadcaster_id) => dispatch(ACTIONS.follow(broadcaster_id))
   }
 };
 

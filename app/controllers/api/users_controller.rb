@@ -18,7 +18,6 @@ class Api::UsersController < ApplicationController
 
 
   def follow
-    # debugger
     broadcaster_id = params[:id]
     following = Following.find_by_follower_id_and_broadcaster_id(current_user.id, broadcaster_id)
     if following
