@@ -1,19 +1,19 @@
 import {connect} from 'react-redux';
 import SearchResults from './search_results';
-import { requestSearchItems } from '../../actions/search_actions';
+import { requestSearchPhotos } from '../../actions/search_actions';
 
 const mapStateToProps = state => {
   return {
-    items: state.photos.items,
-    page: state.photos.page,
-    query: state.photos.query,
+    photos: state.search.photos,
+    page: state.search.page,
+    query: state.search.query,
     loading: state.loading['search-items']
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestSearchItems: (query, page) => dispatch(requestSearchItems(query, page))
+    requestSearchPhotos: (query, page) => dispatch(requestSearchPhotos(query, page))
   }
 };
 

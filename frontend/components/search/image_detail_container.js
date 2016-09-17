@@ -17,7 +17,7 @@ const mapStateToProps = (state, {imageId}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestSearchItems: items => dispatch(requestSearchItems(items)),
+    requestSearchPhotos: items => dispatch(requestSearchPhotos(items)),
     favorite: photo_id => dispatch(favorite(photo_id))
   }
 };

@@ -11,9 +11,9 @@ const SearchMiddleware = store => next => action => {
 
   const successSearch = (query, page) => {
     // debugger
-    return (items) => {
-      dispatch(ACTIONS.receiveSearchItems(items, query, page));
-      dispatch(LOADING_ACTIONS.stopLoading('search-items'));
+    return (photos) => {
+      dispatch(LOADING_ACTIONS.stopLoading('search-photos'));
+      dispatch(ACTIONS.receiveSearchPhotos(photos, query, page));
     };
   };  
 
@@ -30,15 +30,17 @@ const SearchMiddleware = store => next => action => {
   // };    
 
   switch (action.type) {
-    case "REQUEST_SEARCH_ITEMS":
-      dispatch(LOADING_ACTIONS.startLoading('search-items'));
-      API.fetchSearchItems(action.query, store.getState().search.page, successSearch);
+    case "REQUEST_SEARCH_PHOTOS":
+      // debugger;
+      dispatch(LOADING_ACTIONS.startLoading('search-photos'));
+      API.fetchSearchPhotos(action.query, action.page, successSearch);
+      // API.fetchSearchPohotos(action.query, store.getState().search.page, successSearch);
       return next(action);      
       break;    
 
-    case "FILTER_SEARCH_ITEMS":
-      dispatch(LOADING_ACTIONS.startLoading('search-items'));
-      API.filterSearchItems(action.query, action.page, successSearch);
+    case "FILTER_SEARCH_PHOTOS":
+      dispatch(LOADING_ACTIONS.startLoading('search-photos'));
+      API.filterSearchPhotos(action.query, action.page, successSearch);
       return next(action);      
       break;            
 

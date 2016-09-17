@@ -10,7 +10,7 @@ export const fetchFeedPhotos = (success, error) => {
 export const fetchProfilePhotos = (user_id, success, error) => {
   $.ajax({
     method: 'GET',
-    url: `/api/users/${user_id}`,
+    url: `/api/photos/${user_id}`,
     success,
     error
   });

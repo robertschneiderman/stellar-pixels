@@ -9,9 +9,6 @@ class SearchBar extends React.Component {
   searchUpdate(e) {
     e.preventDefault();
     console.log("e.currentTarget.value:", e.currentTarget.value);
-    // console.log("this.props.requestSearchItems:", this.props.requestSearchItems);
-
-    // this.props.requestSearchItems(e.currentTarget.value, 1);
     this.props.makeNewSearch(e.currentTarget.value, 1);
   }
 

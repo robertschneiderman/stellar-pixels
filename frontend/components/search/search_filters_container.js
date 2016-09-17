@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import SearchFilters from './search_filters';
-import { requestSearchItems, filterSearchItems } from '../../actions/search_actions';
+import { requestSearchPhotos, filterSearchItems } from '../../actions/search_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestSearchItems: search => dispatch(requestSearchItems(search)),
+    requestSearchPhotos: search => dispatch(requestSearchPhotos(search)),
     filterSearchItems: search => dispatch(filterSearchItems(search))
   }
 };

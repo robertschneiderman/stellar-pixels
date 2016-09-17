@@ -1,4 +1,4 @@
-import { requestSearchItems } from '../actions/search_actions';
+import { requestSearchPhotos } from '../actions/search_actions';
 import React from 'react';
 import GalleryContainer from './search/gallery_container';
 import SearchResultsContainer from './search/search_results_container';
@@ -50,7 +50,7 @@ class Splash extends React.Component {
     e.preventDefault();
     debugger;
     hashHistory.push('/search');
-    this.props.requestSearchItems(e.currentTarget.value, 1);
+    this.props.requestSearchPhotos(e.currentTarget.value, 1);
   }
 
   render() {

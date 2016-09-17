@@ -3,7 +3,6 @@ import SearchBar from './search_bar';
 import * as ACTIONS from '../../actions/search_actions';
 
 const mapStateToProps = state => {
-  console.log("state:", state);
   return {
     page: state.photos.page,
     query: state.photos.query

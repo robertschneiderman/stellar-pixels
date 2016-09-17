@@ -16,6 +16,7 @@ class ProfilePage extends React.Component {
 
   componentDidMount() {
     this.props.requestUser(this.props.params.id);    
+    this.props.requestProfilePhotos(this.props.params.id);    
   }
 
   componentDidUpdate() {
@@ -62,12 +63,15 @@ class ProfilePage extends React.Component {
 
   render() {
     let code;
-    
-    if (this.props.user.photos) {
-      
+
+    // debugger;
       this.formatPhotos();
       this.setPhotos();
 
+      debugger;
+    
+    if (this.props.user) {
+    
       const style = {
         backgroundImage: 'url(' + this.photos[0].url + ')',
         backgroundPosition: 0
@@ -100,11 +104,9 @@ class ProfilePage extends React.Component {
       </div>
     }
 
-    console.log("this.photos:", this.photos);
-
     return (
       <Loading loading={this.props.loading}>
-        <div className="profile load-fade-in">        
+        <div className="profile load-fade-in">     
           {code}
           {this.gallery}
         </div>

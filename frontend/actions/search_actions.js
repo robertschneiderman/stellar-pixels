@@ -1,18 +1,18 @@
-export const requestSearchItems = (query, page) => ({
-  type: "REQUEST_SEARCH_ITEMS",
+export const requestSearchPhotos = (query, page) => ({
+  type: "REQUEST_SEARCH_PHOTOS",
   query,
   page: page
 });
 
-export const receiveSearchItems = (items, query, page) => ({
-  type: "RECEIVE_SEARCH_ITEMS",
-  items,
+export const receiveSearchPhotos = (photos, query, page) => ({
+  type: "RECEIVE_SEARCH_PHOTOS",
+  photos,
   query,
   page
 });
 
-export const filterSearchItems = (query, page) => ({
-  type: "FILTER_SEARCH_ITEMS",
+export const filterSearchPhotos = (query, page) => ({
+  type: "FILTER_SEARCH_PHOTOS",
   query,
   page: page
 });
@@ -29,17 +29,17 @@ export const favoriteFeed = (photo_id) => {
   }
 };
 
-export const receiveSingleImage = (image) => {
+export const receiveSinglePhoto = (photo) => {
   return {
-    type: "RECEIVE_SINGLE_IMAGE",
-    image
+    type: "RECEIVE_SINGLE_PHOTO",
+    photo
   }
 };
 
-export const receiveSingleImageSearch = (image) => {
+export const receiveSinglePhotoSearch = (photo) => {
   return {
-    type: "RECEIVE_SINGLE_IMAGE_SEARCH",
-    image
+    type: "RECEIVE_SINGLE_PHOTO_SEARCH",
+    photo
   }
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchResultItem from './search_result_item';
+import SearchResultPhoto from './search_result_photo';
 import Loading from './loading';
 import MyPerfectGrid from './perfect_grid';
 // import Gallery from './react_masonry';
@@ -28,27 +28,27 @@ class SearchResults extends React.Component {
   // }
 
   // searchResultItems() {
-  //   if (this.props.items) {
-  //     return <MyPerfectGrid items={this.props.items} />
+  //   if (this.props.photos) {
+  //     return <MyPerfectGrid photos={this.props.photos} />
   //   }
   // }
 
   _handleWaypointEnter() {
-    this.props.requestSearchItems(this.props.query, this.props.page);    
+    this.props.requestSearchPhotos(this.props.query, this.props.page);    
   }
 
   render() {  
-    console.log("this.props.items:", this.props.items);
-    this.items = this.props.items.map(item => {
+    console.log("this.props:", this.props);
+    this.photos = this.props.photos.map(photos => {
       return (
         {
-          id: item.id,
-          url: item.url,
-          email: item.email,
-          avatar: item.avatar,
-          height: item.height,
-          width: item.width,
-          aspectRatio: (item.width / item.height),
+          id: photos.id,
+          url: photos.url,
+          email: photos.email,
+          avatar: photos.avatar,
+          height: photos.height,
+          width: photos.width,
+          aspectRatio: (photos.width / photos.height),
         }
       )
     });
@@ -57,7 +57,7 @@ class SearchResults extends React.Component {
 
     return (
         <div className="search-results">
-          <GalleryContainer photos={this.items} disableLightbox={true} />
+          <GalleryContainer photos={this.photos} disableLightbox={true} />
           <Waypoint
             onEnter={this._handleWaypointEnter}/>
           <section className="mod model-6">

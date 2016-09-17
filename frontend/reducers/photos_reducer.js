@@ -17,6 +17,11 @@ const PhotosReducer = (state = {photos: [], image: {}, page: 1}, action) => {
       newState.items = newState.items.concat(action.items);
       return newState;
 
+    case "RECEIVE_PROFILE_PHOTOS":
+      newState = merge({}, state, {photos: action.photos});
+      // newState.photos = newState.photos.concat(action.photos);
+      return newState;      
+
     case "RECEIVE_NEW_SEARCH":
       newState = merge({}, state, {query: action.query, page: state.page});
       newState.items = action.items;

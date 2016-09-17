@@ -25,6 +25,12 @@ class Api::PhotosController < ApplicationController
 
   end
 
+  def profile
+    @photos = Photo.find_by_user_id(params[:id])
+
+    render :index
+  end
+
   # followings - follower_id, broadcaster_id
 
   def create
@@ -49,7 +55,6 @@ class Api::PhotosController < ApplicationController
 
 
   def show
-    debugger
     @photo = Photo.find_by_id(params[:id])
   end
 
