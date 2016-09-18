@@ -15,18 +15,30 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
+    debugger;
     this.props.requestUser(this.props.params.id);    
-    this.props.requestProfilePhotos(this.props.params.id);    
+    // this.props.requestProfilePhotos(this.props.params.id);    
   }
 
-  componentDidUpdate() {
-    const heroImg = $('#hero-img');
-    if (heroImg) {
-      $(window).scroll(() => {
-        heroImg.animate({'background-postion': '+=30px 0'}, 100);
-      });
-    }     
-  }
+  componentWillReceiveProps(newProps) {
+    this.setState(this.getState(newProps));
+   }
+ 
+  getState(props) {
+    props = props || this.props;
+    return {
+      user: props.requestUser(props.params.id)
+    };
+  } 
+
+  // componentDidUpdate() {
+  //   const heroImg = $('#hero-img');
+  //   if (heroImg) {
+  //     $(window).scroll(() => {
+  //       heroImg.animate({'background-postion': '+=30px 0'}, 100);
+  //     });
+  //   }     
+  // }
 
   formatPhotos() {
     let photos = photosArray(this.props.user.photos);
@@ -62,14 +74,12 @@ class ProfilePage extends React.Component {
   } 
 
   render() {
+    debugger;
     let code;
 
-    // debugger;
-      this.formatPhotos();
-      this.setPhotos();
+    this.formatPhotos();
+    this.setPhotos();
 
-      debugger;
-    
     if (this.props.user) {
     
       const style = {

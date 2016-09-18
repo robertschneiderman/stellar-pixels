@@ -15,7 +15,7 @@ export const requestProfilePhotos = (user_id) => ({
 export const receiveProfilePhotos = (user) => {
   return {
     type: "RECEIVE_PROFILE_PHOTOS",
-    user: user
+    photos: user
   };
 };
 

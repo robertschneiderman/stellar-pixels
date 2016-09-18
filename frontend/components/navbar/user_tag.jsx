@@ -19,8 +19,8 @@ class UserTag extends React.Component {
 
   render() {
     return(
-      <li className="avatar-container ibm">
-        <img className="avatar-img ibm" onClick={this.goToUserPage.bind(this)} src={this.props.avatar} />
+      <li className="avatar-container ibm" onClick={this.goToUserPage.bind(this)}>
+        <img className="avatar-img ibm" src={this.props.avatar} />
         <span className="avatar-title ibm" onClick={this.goToUserPage.bind(this)}>{this.props.email}</span>
       </li>      
     )
