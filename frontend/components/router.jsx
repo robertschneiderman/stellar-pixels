@@ -38,8 +38,6 @@ class AppRouter extends React.Component {
   }
 
   requestUser(nextState) {
-    console.log("this.props.store:", this.props.store);
-    console.log("nextState.params.id:", nextState.params.id);
     this.props.store.dispatch(requestUser(nextState.params.id));
   }
 
