@@ -15,14 +15,13 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
-    this.props.requestUser(this.props.params.id);    
+    // this.props.requestUser(this.props.params.id);    
     // this.props.requestProfilePhotos(this.props.params.id);    
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState(this.getState(newProps));
-   }
+    // this.setState(this.getState(newProps));
+  }
  
   getState(props) {
     props = props || this.props;
@@ -74,54 +73,62 @@ class ProfilePage extends React.Component {
   } 
 
   render() {
-    debugger;
+
+    console.log("RENDER!");
     let code;
 
     this.formatPhotos();
     this.setPhotos();
 
-    if (this.props.user) {
+    debugger;
+
     
-      const style = {
-        backgroundImage: 'url(' + this.photos[0].url + ')',
-        backgroundPosition: 0
-      };      
+    const style = {
+      backgroundImage: 'url(' + this.photos[0].url + ')',
+      backgroundPosition: 0
+    };
 
-      code = <div className="profile-intro">
-
-        <div className="profile-hero" id="hero-img" style={style}>
-          <FollowBtn user={this.props.user} currentUser={this.props.currentUser} follow={this.props.follow} />
-        </div>
-
-        <div className="profile-info">
-          <img className="profile-avatar" src={this.props.user.avatar} alt=""/>
-          <p className="profile-title">{this.props.user.email}</p>
-          <ul className="profile-stats fbc">
-            <li className="profile-stat">
-              {this.count} Photos
-            </li>
-            <li className="profile-stat">
-              {this.attributeCount('favorites')} Favorites
-            </li>
-            <li className="profile-stat">
-              {this.attributeCount('broadcasters')} Follows
-            </li>
-            <li className="profile-stat">
-              {this.attributeCount('followers')} Followers
-            </li>
-          </ul>
-        </div>
-      </div>
+    let defaultUser = {
+      id: 0,
+      avatar: '',
+      email : '',
+      favorites: {}
     }
 
+    let user = this.props.user.id ? this.props.user : defaultUser
+
+      // <Loading loading={this.props.loading}>
     return (
-      <Loading loading={this.props.loading}>
         <div className="profile load-fade-in">     
-          {code}
+          <div className="profile-intro">
+
+            <div className="profile-hero" id="hero-img" style={style}>
+              <FollowBtn user={user} currentUser={this.props.currentUser} follow={this.props.follow} />
+            </div>
+
+            <div className="profile-info">
+              <img className="profile-avatar" src={user.avatar} alt=""/>
+              <p className="profile-title">{user.email}</p>
+              <ul className="profile-stats fbc">
+                <li className="profile-stat">
+                  {this.count} Photos
+                </li>
+                <li className="profile-stat">
+                  {this.attributeCount('favorites')} Favorites
+                </li>
+                <li className="profile-stat">
+                  {this.attributeCount('broadcasters')} Follows
+                </li>
+                <li className="profile-stat">
+                  {this.attributeCount('followers')} Followers
+                </li>
+              </ul>
+            </div>
+          </div>
           {this.gallery}
         </div>
-      </Loading>
     )
+      // </Loading>
   }
 }
 

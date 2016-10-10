@@ -3,7 +3,6 @@ import Gallery from './gallery';
 import { requestImageDetail, favorite } from '../../actions/search_actions';
 
 const mapStateToProps = state => {
-  // debugger;
   return {
     currentUser: state.session.currentUser,
     imageDetail: state.photos.image

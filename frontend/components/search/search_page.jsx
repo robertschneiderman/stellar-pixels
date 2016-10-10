@@ -10,7 +10,6 @@ class SearchPage extends React.Component {
 
   componentDidMount() {
     this.props.loadPage();
-    // debugger;     
   }  
 
   render() {

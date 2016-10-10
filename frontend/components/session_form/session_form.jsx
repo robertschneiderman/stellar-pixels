@@ -16,7 +16,6 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
-      // debugger;
 
     // if (this.props.demoLogin) {
     //   $(".react-modal-input").typed({
@@ -49,7 +48,6 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
     const user = this.state;
     this.props.formType === 'login' ? this.props.login({user}) : this.props.signup({user});

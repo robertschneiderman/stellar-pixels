@@ -27,7 +27,6 @@ class FollowBtn extends React.Component {
 
   render() {
     this.followed();
-    // debugger;
     if (this.props.currentUser.id !== this.props.user.id) {
       return(
         <button 

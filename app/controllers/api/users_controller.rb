@@ -1,7 +1,6 @@
 class Api::UsersController < ApplicationController
 
   def create
-    # debugger
     @user = User.new(user_params)
 
     if @user.save
@@ -36,8 +35,6 @@ class Api::UsersController < ApplicationController
     photo_id = params[:id]
 
     favorite = Favorite.find_by_user_id_and_photo_id(current_user.id, photo_id)
-
-    # debugger
 
     if favorite
       Favorite.delete(favorite.id)

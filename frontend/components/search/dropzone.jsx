@@ -42,7 +42,6 @@ class MyDropzone extends React.Component {
           favorites: 0
         }
         
-        // debugger;
         that.props.getPhoto(image);
       }
     });

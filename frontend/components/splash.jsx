@@ -48,7 +48,6 @@ class Splash extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger;
     hashHistory.push('/search');
     this.props.requestSearchPhotos(e.currentTarget.value, 1);
   }

@@ -9,6 +9,7 @@ import SearchPageContainer from './search/search_page_container';
 import ImageDetailModal from './search/image_detail_modal';
 import ProfilePageContainer from './users/profile_page_container';
 import FeedPageContainer from './search/feed_page_container';
+import { requestUser } from '../actions/users_actions';
 
 
 class AppRouter extends React.Component {
@@ -36,6 +37,13 @@ class AppRouter extends React.Component {
     }
   }
 
+  requestUser(nextState) {
+    console.log("this.props.store:", this.props.store);
+    console.log("nextState.params.id:", nextState.params.id);
+    this.props.store.dispatch(requestUser(nextState.params.id));
+  }
+
+
           // <Route path="/sign-up" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}>
           // </Route>
           // <Route path="/login" component={SessionFormContainer} onEnter={this._redirectIfLoggedIn}>
@@ -58,7 +66,7 @@ class AppRouter extends React.Component {
             </Route>
           </Route>
 
-          <Route path="/users/:id" component={ProfilePageContainer}>
+          <Route path="/users/:id" component={ProfilePageContainer} onEnter={this.requestUser.bind(this)}>
 
           </Route>
 

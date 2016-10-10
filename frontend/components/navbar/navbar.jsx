@@ -8,7 +8,6 @@ class Navbar extends React.Component {
   handleClick(router, url) {
     // console.log("url:", url);
     return () => {
-          debugger;
 
       router.push(url);
     }
@@ -38,7 +37,6 @@ class Navbar extends React.Component {
         </ul>
       )
     } else {
-        // debugger;
       return (  
         <ul className="navbar-nav">
           <li onClick={this.props.openSessionModal.bind(this, 'signup')}>Sign Up</li>

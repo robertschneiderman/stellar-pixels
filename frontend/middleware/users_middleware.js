@@ -18,7 +18,6 @@ const userMiddleware = store => next => action => {
   switch (action.type) {
 
     case "REQUEST_USER":
-      debugger;
       API.fetchUser(action.user_id, successUser);
       return next(action);      
       break;    

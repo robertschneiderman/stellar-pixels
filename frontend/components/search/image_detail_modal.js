@@ -9,14 +9,12 @@ class ImageDetailModal extends React.Component {
   }
 
   componentDidMount() {
-        // debugger;
     setTimeout(() => {
       this.refs.modal.show();
     }, 300)
   }
 
   componentDidUpdate() {
-        // debugger;
 
     this.refs.modal.show();
   }
