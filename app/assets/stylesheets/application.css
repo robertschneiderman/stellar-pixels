@@ -111,9 +111,9 @@
   color: #fff;
   padding: 0.3rem 0.7rem;
   border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+  /*align-items: center;*/
   width: 4.5rem;
   border-color: #ff3333;
 }
@@ -124,6 +124,8 @@
 }
 
 .icon-heart .shape {
+  display: inline-block;
+  vertical-align: middle;
   fill: transparent;
   stroke: #fff;
   stroke-width: 3px;
@@ -233,7 +235,7 @@
 }
 
 .container-splash {
-  background: url("http://res.cloudinary.com/stellar-pixels/image/upload/v1473451562/bg-splash_oczmp8.jpg");
+  background: url("http://res.cloudinary.com/stellar-pixels/image/upload/v1476254439/bg-splash_slainz.jpg");
   background-size: cover;
   padding: 15rem 0;
   width: 100%;
@@ -331,9 +333,6 @@
   color: #fff;
   padding: 0.3rem 0.7rem;
   border-radius: 4px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 4.5rem;
   border-color: #ff3333;
 }
@@ -376,7 +375,10 @@
 
 
 .icon-heart {
+  display: inline-block;
+  vertical-align: middle;  
   width: 1.5rem;
+  left: -6px;
 }
 
 .img-avatar {
@@ -728,7 +730,10 @@
 }
 
 .title-favorites {
+  vertical-align: middle;
+  display: inline-block;
   margin-left: 0.4rem;
+  right: -2px;
 }
 
 .title-user {

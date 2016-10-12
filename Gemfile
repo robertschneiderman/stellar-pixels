@@ -13,6 +13,7 @@ gem 'httparty'
 gem 'react-rails-img'
 gem 'faker'
 gem 'kaminari'
+gem 'retries'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -87,9 +87,6 @@ class Gallery extends React.Component{
 
 
     render(){
-
-        console.log("this.props.imageDetail:", this.props.imageDetail);
-
         if (this.props.imageDetail && this.props.imageDetail.id) {
             this.showModal();
         }

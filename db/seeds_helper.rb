@@ -2,6 +2,8 @@ def fetch_photos(should_run = false)
   return unless should_run
   
   Photo.destroy_all
+  ActiveRecord::Base.connection.reset_pk_sequence!('photos')
+
 
       # 'https://api.gettyimages.com/v3/search/images?phrase=kitties', :headers => { "Api-Key": "uax7gur8ac925x3acrqktf6j"}
 
@@ -150,8 +152,12 @@ def fetch_photos(should_run = false)
 
   blue = JSON.parse(response.body)["photos"]
 
+  # debugger
 
-  results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(people).concat(performing_arts).concat(sport).concat(still_life).concat(street).concat(transportation).concat(cats).concat(dogs).concat(people).concat(sky).concat(mountain).concat(red).concat(orange).concat(yellow).concat(green).concat(blue)
+
+  results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(performing_arts)
+
+  # results = abstract.concat(animals).concat(black_and_white).concat(city).concat(commercial).concat(concert).concat(family).concat(film).concat(fine_art).concat(food).concat(landscapes).concat(nature).concat(people).concat(performing_arts).concat(sport).concat(still_life).concat(street).concat(transportation).concat(cats).concat(dogs).concat(people).concat(sky).concat(mountain).concat(red).concat(orange).concat(yellow).concat(green).concat(blue)
 
 
   results = results.each_with_index do |obj, i|

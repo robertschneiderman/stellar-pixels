@@ -8,8 +8,7 @@ class SearchBar extends React.Component {
 
   searchUpdate(e) {
     e.preventDefault();
-    console.log("e.currentTarget.value:", e.currentTarget.value);
-    this.props.makeNewSearch(e.currentTarget.value, 1);
+    this.props.requestSearchPhotos(e.currentTarget.value, 1);
   }
 
   render() {

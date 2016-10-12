@@ -48,11 +48,11 @@ class Navbar extends React.Component {
 
   render() {
     let navbarClass = "navbar fbc";
-    let logoSrc = "http://res.cloudinary.com/stellar-pixels/image/upload/v1473451134/logo_scj8cw.svg";
+    let logoSrc = "http://res.cloudinary.com/stellar-pixels/image/upload/v1476254588/logo_oxmm2z.svg";
 
     if (this.props.location.pathname == '/') {
       navbarClass = 'navbar-home fbc';
-      logoSrc = 'http://res.cloudinary.com/stellar-pixels/image/upload/v1473451133/logo-white_htoyzm.svg'
+      logoSrc = 'http://res.cloudinary.com/stellar-pixels/image/upload/v1476254585/logo-white_t7so4y.svg'
     }
 
     if (this.props.location.pathname == '/feed') {

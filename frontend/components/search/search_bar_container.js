@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    makeNewSearch: (query, page) => dispatch(ACTIONS.makeNewSearch(query, page))
+    requestSearchPhotos: (query, page) => dispatch(ACTIONS.requestSearchPhotos(query, page))
   }
 };
 

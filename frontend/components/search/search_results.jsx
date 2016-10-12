@@ -54,13 +54,13 @@ class SearchResults extends React.Component {
     });
 
       // <Loading loading={this.props.loading} >
-
+    let style = {top: '100px', marginBottom: '100px'}
     return (
         <div className="search-results">
           <GalleryContainer photos={this.photos} disableLightbox={true} />
           <Waypoint
             onEnter={this._handleWaypointEnter}/>
-          <section className="mod model-6">
+          <section style={style} className="mod model-6">
             <div className="spinner">
             </div>
           </section>     
