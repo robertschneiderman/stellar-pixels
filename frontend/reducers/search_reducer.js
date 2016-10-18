@@ -7,7 +7,6 @@ const SearchReducer = (state = {photos: [], image: {}, page: 1, query: ''}, acti
 
     case "RECEIVE_SEARCH_PHOTOS":
       let photos;
-      debugger;
       if (state.query !== action.query) {
         photos = action.photos;
       } else {

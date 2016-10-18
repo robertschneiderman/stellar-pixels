@@ -33,6 +33,18 @@ class Splash extends React.Component {
     // clearInterval(interval);
   }
 
+  componentWillMount() {
+// 'http://res.cloudinary.com/stellar-pixels/image/upload/v1476817022/white_bg1_ad5ea9.jpg'
+// 'http://res.cloudinary.com/stellar-pixels/image/upload/v1476817026/white_bg3_fwawo6.jpg'
+    let images = ['http://res.cloudinary.com/stellar-pixels/image/upload/v1476817024/white_bg2_u3yyqi.jpg', 'http://res.cloudinary.com/stellar-pixels/image/upload/v1476817028/white_bg4_k8n9rk.jpg', 'http://res.cloudinary.com/stellar-pixels/image/upload/v1476817031/white_bg5_zcd9ir.jpg' ];
+
+    let randomNumber = Math.floor(Math.random() * (3 - 0) + 0);
+
+    this.bgImg = {
+      'backgroundImage': 'url(' + images[randomNumber] + ')'
+    };
+  }
+
   componentDidMount() {
     this.setState({modalIsOpen: false});    
   }
@@ -53,6 +65,8 @@ class Splash extends React.Component {
   }
 
   render() {
+                // <h1 className="headline-splash">Home to everyones best photos</h1>
+            // <p className="headline-sub-splash mb25">Showcase your work, license amazing photos, and stay inspired.</p> 
 
     return(
 
@@ -66,11 +80,10 @@ class Splash extends React.Component {
           <SessionFormContainer closeModal={this.hideSessionModal.bind(this)} formType={this.state.formType} demoLogin={true} />
         </Modal>
 
-
-        <div className="container-splash">
+        <div className="container-splash" style={this.bgImg}>
+          <div className="overlay"></div>
           <header className="header-splash">
-            <h1 className="headline-splash">Home to everyones best photos</h1>
-            <p className="headline-sub-splash mb25">Showcase your work, license amazing photos, and stay inspired.</p>
+            <img className="headline-title" src="./assets/title.svg" alt=""/>
             <button className="btn btn-large color-blue" onClick={this.demoLogin.bind(this)}>Demo Login</button>
           </header>
         

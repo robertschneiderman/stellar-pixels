@@ -4,7 +4,6 @@ import { favorite } from '../../actions/search_actions';
 
 
 const mapStateToProps = (state, {imageId}) => {
-  debugger;
   const image = state.search.photos.find((item) => {
     if (item.id == imageId) return true;
   });

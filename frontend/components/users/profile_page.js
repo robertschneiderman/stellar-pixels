@@ -79,9 +79,6 @@ class ProfilePage extends React.Component {
 
     this.formatPhotos();
     this.setPhotos();
-
-    debugger;
-
     
     const style = {
       backgroundImage: 'url(' + this.photos[0].url + ')',
