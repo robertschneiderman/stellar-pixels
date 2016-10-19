@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import UploadForm from './upload_form';
-import { uploadPhoto } from '../actions/search_actions';
+import { uploadPhoto } from '../actions/photos_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
