@@ -83,7 +83,7 @@ class Splash extends React.Component {
         <div className="container-splash" style={this.bgImg}>
           <div className="overlay"></div>
           <header className="header-splash">
-            <img className="headline-title" src="./assets/title.svg" alt=""/>
+            <img className="headline-title" src="http://res.cloudinary.com/stellar-pixels/image/upload/v1476908527/title_fjmv2i.svg" alt=""/>
             <button className="btn btn-large color-blue" onClick={this.demoLogin.bind(this)}>Demo Login</button>
           </header>
         
